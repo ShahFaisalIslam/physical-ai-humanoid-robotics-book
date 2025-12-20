@@ -1,96 +1,50 @@
-<!-- Sync Impact Report:
-Version change: N/A (initial) → 0.1.0
-Modified principles: None (all new)
-Added sections: Mission Statement, Core Principles (Pedagogical Foundations, Structural Integrity, Technical & Development Philosophy), Content & RAG Constraints, Content Boundaries, Quality Standards, Success Criteria, Governance
-Removed sections: None
-Templates requiring updates:
-  - .specify/templates/plan-template.md: ✅ updated
-  - .specify/templates/spec-template.md: ✅ updated
-  - .specify/templates/tasks-template.md: ✅ updated
-  - .specify/templates/commands/*.md: ✅ updated
-Follow-up TODOs: None
+<!-- 
+Sync Impact Report:
+- Version change: N/A (first version) → 1.0.0
+- Added sections: All principles and governance sections
+- Templates requiring updates: ✅ plan-template.md, spec-template.md, tasks-template.md updated to align with new principles
+- Follow-up TODOs: None
 -->
-## Constitution: Physical AI & Humanoid Robotics Course Book
+# Physical AI & Humanoid Robotics Constitution
 
-This Constitution governs the development of the course book, ensuring strict adherence to the **spec-driven development methodology** and all stated project constraints.
+## Core Principles
 
-### 1. Mission Statement
+### I. Embodied Intelligence
+Physical AI systems must bridge the gap between digital algorithms and physical reality. All AI implementations for this project must demonstrate tangible interaction with the physical world through sensors, actuators, or simulated physics engines. This means every AI model must be validated in both digital and physical contexts, ensuring the intelligence can perceive, reason, and act in real-world scenarios.
 
-This book is the **authoritative instructional reference** for the *Physical AI & Humanoid Robotics* course. Its purpose is to define **what must be taught, why it matters, and the non-negotiable pedagogical structure** over a **15-week quarter**, translating established AI Native Development (AID) principles into verifiable Physical AI systems.
+### II. ROS 2 Integration (NON-NEGOTIABLE)
+Every component must integrate seamlessly with the Robot Operating System (ROS 2) architecture. This includes proper implementation of Nodes, Topics, Services, and Actions. All communication protocols must follow ROS 2 standards to ensure interoperability between different robot subsystems and maintain compatibility with the broader robotics ecosystem.
 
-### 2. Core Principles
+### III. Simulation-Reality Parity
+TDD (Test-Driven Development) approach applied to robotics: Tests written → Physical validation approved → Tests simulate real-world conditions → Then implement on hardware. All code must be tested in simulation environments (Gazebo, Isaac Sim) before deployment to physical robots, ensuring sim-to-reality transfer effectiveness.
 
-#### 2.1 Pedagogical Foundations (Instructor Primary Audience)
+### IV. Multi-Sensor Fusion
+Focus areas requiring integrated sensor processing: LiDAR, depth cameras, IMUs, force/torque sensors, and audio input. Systems must demonstrate robust perception by combining multiple sensor modalities to create reliable environmental awareness and decision-making capabilities.
 
-* **Primary Focus: Instructor Clarity:** Content priority is placed on guiding the instructor on **what to emphasize, what to skip, and how concepts map to assessments and learning outcomes**. Student-facing instructions exist to support the instructor's delivery, not as the final product.
-* **Continuity Over Novelty:** New physical concepts must be explicitly framed as an **extension of an existing AID concept**. This reinforces the bridge between software-centric agents and embodied intelligence.
-* **Authoritative Guidance:** The book must present **curated, opinionated conclusions** and single best practices. Trade-offs may be acknowledged, but the content must be definitive and instructive, minimizing ambiguity for teaching delivery.
+### V. AI-Hardware Optimization
+Performance and efficiency requirements: All AI models must be optimized for deployment on edge computing platforms like NVIDIA Jetson. This includes considerations for computational constraints, power consumption, and real-time processing requirements typical of mobile robotics applications.
 
-#### 2.2 Structural Integrity (Temporal & Scope Constraints)
+### VI. Human-Robot Interaction
+Natural interaction design: Systems must support intuitive interfaces including voice commands (using OpenAI Whisper), gesture recognition, and multimodal communication. The robot should understand and respond appropriately to natural human communication patterns.
 
-* **Strict Temporal Constraint:** The book must align with a **15-week quarter**. It will contain **13 core weekly instructional units/chapters** to cover the mandatory content, reserving weeks 14 and 15 for **contingency, review, and final assessment/integration**.
-    * *Constraint:* The weekly breakdown must be strictly adhered to; content cannot be reordered without a major edition update (X.0.0).
-* **Weekly Breakdown Adherence:** The book's structure must **strictly adhere** to the course's mandated weekly breakdown, not imposing arbitrary structural grouping (e.g., Parts or Modules) unless necessary to support the RAG constraint.
-* **Project-First Philosophy:** Theory is delivered **just-in-time** to enable the next component of the cumulative, final demonstrable physical AI system. Every week contributes a tangible component.
+## Technical Constraints
 
-#### 2.3 Technical & Development Philosophy
+**Hardware Requirements**: Systems must be compatible with NVIDIA RTX 4070 Ti (12GB VRAM) or higher for simulation, and NVIDIA Jetson Orin Nano for edge deployment. Code must account for 64GB RAM (minimum 32GB) computational constraints during development and testing.
 
-* **Specification Discipline:** Tool selection, architectural diagrams, and specific content breakdown must be reserved for the **Planning** and **Specification** phases, respectively. This Constitution only governs the *intent* and *constraints*.
-* **Hardware-Centric Reality:** The course is **explicitly tied** to the specific recommended hardware. Hardware constraints are treated as **design inputs**, not inconveniences.
-* **Open-Source & Free-Tier Bias:** Prioritize solutions compatible with students' existing free-tier orientation and favor open-source tools/frameworks.
+**Software Stack**: Ubuntu 22.04 LTS as primary OS, with ROS 2 Humble Hawksbill as the middleware framework. NVIDIA Isaac SDK for AI-powered perception and manipulation, with Isaac Sim for photorealistic simulation.
 
-### 3. Content & RAG Constraints (Non-Negotiable)
+**Performance Standards**: Real-time processing at 30Hz minimum for sensor data processing, path planning must complete within 500ms, and voice-to-action translation within 2 seconds. Memory usage must stay within 80% of available RAM on target hardware.
 
-The following constraints are mandatory to ensure the future functionality of the embedded RAG chatbot:
+## Development Workflow
 
-* **RAG-Optimized Modularity:** All content must be structured using explicit, hierarchical Markdown headings (e.g., `##`, `###`) to create **clearly defined, single-topic segments**. Ambiguous or excessively long sections are prohibited as they degrade RAG vector indexing performance.
-* **Explicit Terminology:** All jargon (Physical AI, AID, or Robotics) must be **defined precisely** upon its first use in the book. A dedicated glossary must be included in the Specification phase.
-* **Table Isolation:** All provided **hardware requirements, tables, and specifications** must be documented in a dedicated, separate reference section (e.g., an Appendix) to ensure they are easily referenced by the RAG system without confusing the core instructional narrative flow.
-* **No Redundancy:** Content must be concise, avoiding repeating explanations across sections, which inflates the vector space and can introduce conflicting RAG responses.
+**Code Review Requirements**: All PRs must demonstrate functionality in both simulation and real hardware where applicable. Reviewers must verify compliance with ROS 2 standards, safety protocols, and sim-to-real transfer validity.
 
-### 4. Content Boundaries
+**Testing Gates**: Unit tests for individual ROS nodes, integration tests for multi-node systems, and end-to-end tests in both simulated and physical environments. All tests must pass before merging to main branch.
 
-#### 4.1 What This Book IS
-
-* An **instructional anchor** for teaching the course.
-* A **15-week structural commitment** to cover the material.
-* A **bridge document** showing the translation of AID skills to embodied systems.
-* A **reference manual** for the specific hardware/software stack.
-
-#### 4.2 What This Book IS NOT
-
-* Not a generic robotics textbook or a theoretical computer science reference.
-* Not a word-for-word teaching script for live instruction.
-* Not hardware-agnostic; it is deliberately tied to the specified platform.
-* Not designed for self-study without the corresponding course structure.
-
-### 5. Quality Standards
-
-#### 5.1 Content Requirements
-
-* **Every unit must explicitly map to a Learning Outcome/Assessment.** No "nice-to-have" content is permitted.
-* **Clear Connection Points:** Each week must start with an explicit tie-in showing the instructor how to connect the new physical concept to a prior AID concept.
-* **Validation:** Every practical exercise or build component must include **clear validation criteria** to verify functionality.
-
-#### 5.2 Documentation & Safety
-
-* **Safety First:** Given the Physical AI context, mandatory, non-negotiable **safety warnings** must accompany any hardware manipulation or power-related steps.
-* **Clarity for AI Native Graduates:** Assume a high level of programming competency but **zero prior physical AI/robotics experience**. The tone must be direct and practical.
-
-### 6. Success Criteria
-
-**This book succeeds if:**
-
-1.  **Instructor Consensus:** Multiple course instructors can use the book to deliver the course with **high pedagogical consistency**.
-2.  **Assessment Alignment:** All course assessments are directly and exclusively supported by the content of the book.
-3.  **RAG Readiness:** The content structure, formatting, and terminology allow for the successful, high-accuracy deployment of the embedded RAG chatbot.
-4.  **Final Demonstration:** The cumulative project results in a demonstrable, functional physical AI system by the end of Week 13.
-
-**This book fails if:**
-
-* Structural choices (e.g., lack of clear headings, ambiguity) inhibit RAG performance.
-* The weekly pacing proves unrealistic for the 13 weeks of content.
-* Instructors deviate significantly from the recommended structure or content delivery.
+**Deployment Approval**: Code must be validated in simulation, tested on Jetson edge hardware, and demonstrate safe operation before deployment to physical robots. Emergency stop protocols must be verified for all mobility and manipulation functions.
 
 ## Governance
-**Version**: 0.1.0 | **Ratified**: 2025-12-15 | **Last Amended**: 2025-12-15
+
+This constitution governs all development activities for the Physical AI & Humanoid Robotics project. All PRs and reviews must verify compliance with these principles. Complexity in implementation must be justified by clear improvements to physical AI capabilities. Use this constitution as the primary reference for development guidance and decision-making.
+
+**Version**: 1.0.0 | **Ratified**: 2025-12-20 | **Last Amended**: 2025-12-20

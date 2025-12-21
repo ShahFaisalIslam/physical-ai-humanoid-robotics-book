@@ -287,10 +287,10 @@ Action Planning Input
 
 ### Real-time Requirements
 
-- **Audio Processing:** <50ms latency
-- **Navigation Planning:** <100ms for local planning, <1s for global planning
-- **Manipulation Control:** <10ms for joint control loops
-- **Object Detection:** <200ms for perception pipeline
+- **Audio Processing:** {'<'}50ms latency
+- **Navigation Planning:** {'<'}100ms for local planning, {'<'}1s for global planning
+- **Manipulation Control:** {'<'}10ms for joint control loops
+- **Object Detection:** {'<'}200ms for perception pipeline
 
 ### Resource Management
 

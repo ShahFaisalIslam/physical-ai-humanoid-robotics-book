@@ -1,0 +1,365 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-capstone-project/capstone-architecture" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Capstone Architecture Design | Physical AI &amp; Humanoid Robotics</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://your-username.github.io/physical-ai-humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://your-username.github.io/physical-ai-humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://your-username.github.io/physical-ai-humanoid-robotics-book/docs/capstone-project/capstone-architecture"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Capstone Architecture Design | Physical AI &amp; Humanoid Robotics"><meta data-rh="true" name="description" content="Design of the capstone architecture integrating all modules"><meta data-rh="true" property="og:description" content="Design of the capstone architecture integrating all modules"><link data-rh="true" rel="icon" href="/physical-ai-humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://your-username.github.io/physical-ai-humanoid-robotics-book/docs/capstone-project/capstone-architecture"><link data-rh="true" rel="alternate" href="https://your-username.github.io/physical-ai-humanoid-robotics-book/docs/capstone-project/capstone-architecture" hreflang="en"><link data-rh="true" rel="alternate" href="https://your-username.github.io/physical-ai-humanoid-robotics-book/docs/capstone-project/capstone-architecture" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://YOUR_APP_ID-dsn.algolia.net" crossorigin="anonymous"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Capstone Architecture Design","item":"https://your-username.github.io/physical-ai-humanoid-robotics-book/docs/capstone-project/capstone-architecture"}]}</script><link rel="alternate" type="application/rss+xml" href="/physical-ai-humanoid-robotics-book/blog/rss.xml" title="Physical AI &amp; Humanoid Robotics RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/physical-ai-humanoid-robotics-book/blog/atom.xml" title="Physical AI &amp; Humanoid Robotics Atom Feed">
+
+
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="Physical AI &amp; Humanoid Robotics" href="/physical-ai-humanoid-robotics-book/opensearch.xml"><link rel="stylesheet" href="/physical-ai-humanoid-robotics-book/assets/css/styles.9a485ed3.css">
+<script src="/physical-ai-humanoid-robotics-book/assets/js/runtime~main.fd4f4f83.js" defer="defer"></script>
+<script src="/physical-ai-humanoid-robotics-book/assets/js/main.fbd0b622.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/physical-ai-humanoid-robotics-book/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/physical-ai-humanoid-robotics-book/"><div class="navbar__logo"><img src="/physical-ai-humanoid-robotics-book/img/logo.svg" alt="Physical AI Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/physical-ai-humanoid-robotics-book/img/logo.svg" alt="Physical AI Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Physical AI &amp; Humanoid Robotics</b></a><a aria-current="page" class="navbar__item navbar__link navbar__link--active" href="/physical-ai-humanoid-robotics-book/docs/preface">Book</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/physical-ai-humanoid-robotics-book/docs/module-1-ros-fundamentals/introduction-to-ros2">Start Reading</a><a href="https://github.com/your-organization/physical-ai-humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts="Meta+k"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="1.4"></circle><path d="m21 21-4.3-4.3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/physical-ai-humanoid-robotics-book/docs/preface"><span title="Preface" class="categoryLinkLabel_W154">Preface</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/physical-ai-humanoid-robotics-book/docs/module-1-ros-fundamentals/introduction-to-ros2"><span title="Module 1: ROS 2 Fundamentals" class="categoryLinkLabel_W154">Module 1: ROS 2 Fundamentals</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/physical-ai-humanoid-robotics-book/docs/module-2-digital-twin/gazebo-simulation"><span title="Module 2: Digital Twin (Gazebo &amp; Unity)" class="categoryLinkLabel_W154">Module 2: Digital Twin (Gazebo &amp; Unity)</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/physical-ai-humanoid-robotics-book/docs/module-3-ai-robot-brain/isaac-sdk-overview"><span title="Module 3: AI-Robot Brain (NVIDIA Isaac™)" class="categoryLinkLabel_W154">Module 3: AI-Robot Brain (NVIDIA Isaac™)</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/physical-ai-humanoid-robotics-book/docs/module-4-vision-language-action/whisper-integration"><span title="Module 4: Vision-Language-Action (VLA)" class="categoryLinkLabel_W154">Module 4: Vision-Language-Action (VLA)</span></a></div></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret menu__link--active" role="button" aria-expanded="true" href="/physical-ai-humanoid-robotics-book/docs/capstone-project/autonomous-humanoid"><span title="Capstone Project" class="categoryLinkLabel_W154">Capstone Project</span></a></div><ul class="menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/physical-ai-humanoid-robotics-book/docs/capstone-project/autonomous-humanoid"><span title="Autonomous Humanoid Capstone Project" class="linkLabel_WmDU">Autonomous Humanoid Capstone Project</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" tabindex="0" href="/physical-ai-humanoid-robotics-book/docs/capstone-project/capstone-architecture"><span title="Capstone Architecture Design" class="linkLabel_WmDU">Capstone Architecture Design</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/physical-ai-humanoid-robotics-book/docs/capstone-project/implementation-guide"><span title="Capstone Implementation Guide" class="linkLabel_WmDU">Capstone Implementation Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/physical-ai-humanoid-robotics-book/docs/capstone-project/integration-examples"><span title="Capstone Code Examples" class="linkLabel_WmDU">Capstone Code Examples</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/physical-ai-humanoid-robotics-book/docs/capstone-project/troubleshooting-guide"><span title="Capstone Troubleshooting Guide" class="linkLabel_WmDU">Capstone Troubleshooting Guide</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/physical-ai-humanoid-robotics-book/docs/capstone-project/exercises-system-integration"><span title="Capstone Exercises for System Integration" class="linkLabel_WmDU">Capstone Exercises for System Integration</span></a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-2 menu__list-item"><a class="menu__link" tabindex="0" href="/physical-ai-humanoid-robotics-book/docs/capstone-project/assessment-capstone"><span title="Capstone Assessment Questions" class="linkLabel_WmDU">Capstone Assessment Questions</span></a></li></ul></li><li class="theme-doc-sidebar-item-category theme-doc-sidebar-item-category-level-1 menu__list-item menu__list-item--collapsed"><div class="menu__list-item-collapsible"><a class="categoryLink_byQd menu__link menu__link--sublist menu__link--sublist-caret" role="button" aria-expanded="false" href="/physical-ai-humanoid-robotics-book/docs/hardware-requirements"><span title="Appendices" class="categoryLinkLabel_W154">Appendices</span></a></div></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/physical-ai-humanoid-robotics-book/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item"><span class="breadcrumbs__link">Capstone Project</span></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Capstone Architecture Design</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Capstone Architecture Design</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h2>
+<p>This document details the architecture design for the Autonomous Humanoid Capstone Project, which integrates all concepts learned in the previous modules. The system combines ROS 2 fundamentals, Gazebo simulation, NVIDIA Isaac platform, and conversational AI into a cohesive autonomous robotic system.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="system-architecture-overview">System Architecture Overview<a href="#system-architecture-overview" class="hash-link" aria-label="Direct link to System Architecture Overview" title="Direct link to System Architecture Overview" translate="no">​</a></h2>
+<p>The capstone system follows a modular architecture with clear separation of concerns, enabling independent development and testing of components while ensuring seamless integration.</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">┌─────────────────────────────────────────────────────────────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│                    System Orchestrator                          │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├─────────────────────────────────────────────────────────────────┤</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  ┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  │   Voice Input   │  │  NLP &amp; Planning  │  │  Navigation &amp;   │ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  │   Processing    │  │     Module       │  │  Path Planning  │ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  └─────────────────┘  └──────────────────┘  └─────────────────┘ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│         │                        │                       │      │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│         ▼                        ▼                       ▼      │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  ┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  │  Whisper ASR    │  │  LLM Cognitive   │  │   ROS 2 Action  │ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  │  Integration    │  │   Planner        │  │   Execution     │ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  └─────────────────┘  └──────────────────┘  └─────────────────┘ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│         │                        │                       │      │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│         ▼                        ▼                       ▼      │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  ┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  │  Audio Capture  │  │  Task Manager    │  │  Manipulation   │ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  │   &amp; Preproc.    │  │     &amp; Safety     │  │   Controller    │ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  └─────────────────┘  └──────────────────┘  └─────────────────┘ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">└─────────────────────────────────────────────────────────────────┘</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                              │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">                              ▼</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">┌─────────────────────────────────────────────────────────────────┐</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│                    Perception System                            │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">├─────────────────────────────────────────────────────────────────┤</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  ┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  │  Camera Input   │  │  Object Detection│  │  3D Pose Est.   │ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  │                 │  │                  │  │                 │ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">│  └─────────────────┘  └──────────────────┘  └─────────────────┘ │</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">└─────────────────────────────────────────────────────────────────┘</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="detailed-component-design">Detailed Component Design<a href="#detailed-component-design" class="hash-link" aria-label="Direct link to Detailed Component Design" title="Direct link to Detailed Component Design" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="1-voice-input-processing-module">1. Voice Input Processing Module<a href="#1-voice-input-processing-module" class="hash-link" aria-label="Direct link to 1. Voice Input Processing Module" title="Direct link to 1. Voice Input Processing Module" translate="no">​</a></h3>
+<p><strong>Responsibilities:</strong></p>
+<ul>
+<li class="">Capture and preprocess audio input</li>
+<li class="">Perform speech-to-text conversion</li>
+<li class="">Handle wake word detection</li>
+<li class="">Manage audio stream buffering</li>
+</ul>
+<p><strong>Interfaces:</strong></p>
+<ul>
+<li class=""><strong>Input:</strong> Raw audio data from microphone array</li>
+<li class=""><strong>Output:</strong> Transcribed text to NLP module</li>
+<li class=""><strong>Parameters:</strong> Audio format, sample rate, wake word</li>
+</ul>
+<p><strong>Design Considerations:</strong></p>
+<ul>
+<li class="">Real-time processing with low latency</li>
+<li class="">Noise reduction for robotic environments</li>
+<li class="">Wake word detection to conserve resources</li>
+<li class="">Buffering for continuous processing</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="2-nlp--planning-module">2. NLP &amp; Planning Module<a href="#2-nlp--planning-module" class="hash-link" aria-label="Direct link to 2. NLP &amp; Planning Module" title="Direct link to 2. NLP &amp; Planning Module" translate="no">​</a></h3>
+<p><strong>Responsibilities:</strong></p>
+<ul>
+<li class="">Interpret natural language commands</li>
+<li class="">Extract intent and entities</li>
+<li class="">Generate action plans</li>
+<li class="">Maintain conversation context</li>
+</ul>
+<p><strong>Interfaces:</strong></p>
+<ul>
+<li class=""><strong>Input:</strong> Transcribed text from ASR module</li>
+<li class=""><strong>Output:</strong> Structured action plan to navigation/manipulation modules</li>
+<li class=""><strong>Parameters:</strong> LLM model, context window size, confidence thresholds</li>
+</ul>
+<p><strong>Design Considerations:</strong></p>
+<ul>
+<li class="">Integration with cloud/local LLMs</li>
+<li class="">Context awareness for multi-turn conversations</li>
+<li class="">Error handling for ambiguous commands</li>
+<li class="">Safety validation of generated plans</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="3-navigation--path-planning-module">3. Navigation &amp; Path Planning Module<a href="#3-navigation--path-planning-module" class="hash-link" aria-label="Direct link to 3. Navigation &amp; Path Planning Module" title="Direct link to 3. Navigation &amp; Path Planning Module" translate="no">​</a></h3>
+<p><strong>Responsibilities:</strong></p>
+<ul>
+<li class="">Global path planning</li>
+<li class="">Local obstacle avoidance</li>
+<li class="">Localization and mapping</li>
+<li class="">Motion control</li>
+</ul>
+<p><strong>Interfaces:</strong></p>
+<ul>
+<li class=""><strong>Input:</strong> Navigation goals, sensor data (LIDAR, IMU)</li>
+<li class=""><strong>Output:</strong> Robot motion commands</li>
+<li class=""><strong>Parameters:</strong> Map data, costmap parameters, controller gains</li>
+</ul>
+<p><strong>Design Considerations:</strong></p>
+<ul>
+<li class="">Integration with ROS 2 navigation stack</li>
+<li class="">Real-time obstacle detection and avoidance</li>
+<li class="">Multi-floor navigation support</li>
+<li class="">Kinematic constraints enforcement</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="4-ros-2-action-execution-module">4. ROS 2 Action Execution Module<a href="#4-ros-2-action-execution-module" class="hash-link" aria-label="Direct link to 4. ROS 2 Action Execution Module" title="Direct link to 4. ROS 2 Action Execution Module" translate="no">​</a></h3>
+<p><strong>Responsibilities:</strong></p>
+<ul>
+<li class="">Execute low-level robot actions</li>
+<li class="">Manage action sequencing</li>
+<li class="">Monitor execution status</li>
+<li class="">Handle action failures</li>
+</ul>
+<p><strong>Interfaces:</strong></p>
+<ul>
+<li class=""><strong>Input:</strong> High-level action plans</li>
+<li class=""><strong>Output:</strong> Low-level control commands</li>
+<li class=""><strong>Parameters:</strong> Action timeout, retry policies</li>
+</ul>
+<p><strong>Design Considerations:</strong></p>
+<ul>
+<li class="">Use of ROS 2 action servers for long-running tasks</li>
+<li class="">Execution monitoring and feedback</li>
+<li class="">Graceful failure handling</li>
+<li class="">Action preemption capabilities</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="5-manipulation-controller-module">5. Manipulation Controller Module<a href="#5-manipulation-controller-module" class="hash-link" aria-label="Direct link to 5. Manipulation Controller Module" title="Direct link to 5. Manipulation Controller Module" translate="no">​</a></h3>
+<p><strong>Responsibilities:</strong></p>
+<ul>
+<li class="">Control robotic arm and gripper</li>
+<li class="">Execute grasp and manipulation tasks</li>
+<li class="">Integrate with perception for object interaction</li>
+<li class="">Ensure safe manipulation</li>
+</ul>
+<p><strong>Interfaces:</strong></p>
+<ul>
+<li class=""><strong>Input:</strong> Manipulation goals, object poses</li>
+<li class=""><strong>Output:</strong> Joint commands, gripper control</li>
+<li class=""><strong>Parameters:</strong> Kinematic model, grasp parameters</li>
+</ul>
+<p><strong>Design Considerations:</strong></p>
+<ul>
+<li class="">Integration with MoveIt! for motion planning</li>
+<li class="">Force control for safe manipulation</li>
+<li class="">Grasp planning algorithms</li>
+<li class="">Collision avoidance during manipulation</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="6-perception-system">6. Perception System<a href="#6-perception-system" class="hash-link" aria-label="Direct link to 6. Perception System" title="Direct link to 6. Perception System" translate="no">​</a></h3>
+<p><strong>Responsibilities:</strong></p>
+<ul>
+<li class="">Process visual data from cameras</li>
+<li class="">Detect and classify objects</li>
+<li class="">Estimate 3D poses</li>
+<li class="">Provide semantic information</li>
+</ul>
+<p><strong>Interfaces:</strong></p>
+<ul>
+<li class=""><strong>Input:</strong> Camera images, depth data</li>
+<li class=""><strong>Output:</strong> Detected objects, poses</li>
+<li class=""><strong>Parameters:</strong> Detection thresholds, model paths</li>
+</ul>
+<p><strong>Design Considerations:</strong></p>
+<ul>
+<li class="">Real-time processing capabilities</li>
+<li class="">Integration with NVIDIA Isaac for AI inference</li>
+<li class="">Multi-camera support</li>
+<li class="">Calibration and rectification</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-flow-design">Data Flow Design<a href="#data-flow-design" class="hash-link" aria-label="Direct link to Data Flow Design" title="Direct link to Data Flow Design" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="command-processing-flow">Command Processing Flow<a href="#command-processing-flow" class="hash-link" aria-label="Direct link to Command Processing Flow" title="Direct link to Command Processing Flow" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">User Voice Command</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         ↓ (spoken)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Microphone Array</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         ↓ (raw audio)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Audio Preprocessing</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         ↓ (cleaned audio)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Wake Word Detection</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         ↓ (if activated)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Whisper ASR</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         ↓ (transcribed text)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">NLP Module</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         ↓ (structured command)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">LLM Cognitive Planner</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         ↓ (action plan)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Task Manager &amp; Safety</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         ↓ (validated actions)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Action Execution</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">         ↓ (low-level commands)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Robot Hardware</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="perception-processing-flow">Perception Processing Flow<a href="#perception-processing-flow" class="hash-link" aria-label="Direct link to Perception Processing Flow" title="Direct link to Perception Processing Flow" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Camera Input</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ↓</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Image Rectification</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ↓</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Object Detection (Isaac)</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ↓</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Pose Estimation</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ↓</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Semantic Segmentation</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ↓</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Object Tracking</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ↓</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Scene Understanding</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">      ↓</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Action Planning Input</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="communication-architecture">Communication Architecture<a href="#communication-architecture" class="hash-link" aria-label="Direct link to Communication Architecture" title="Direct link to Communication Architecture" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="ros-2-topics-and-services">ROS 2 Topics and Services<a href="#ros-2-topics-and-services" class="hash-link" aria-label="Direct link to ROS 2 Topics and Services" title="Direct link to ROS 2 Topics and Services" translate="no">​</a></h3>
+<p><strong>Audio Processing:</strong></p>
+<ul>
+<li class=""><code>~/audio_input</code> (sensor_msgs/AudioData) - Raw audio data</li>
+<li class=""><code>~/transcribed_text</code> (std_msgs/String) - Transcribed speech</li>
+<li class=""><code>~/wake_word_detected</code> (std_msgs/Bool) - Wake word detection</li>
+</ul>
+<p><strong>Navigation:</strong></p>
+<ul>
+<li class=""><code>~/goal_pose</code> (geometry_msgs/PoseStamped) - Navigation goals</li>
+<li class=""><code>~/cmd_vel</code> (geometry_msgs/Twist) - Velocity commands</li>
+<li class=""><code>~/path</code> (nav_msgs/Path) - Planned path</li>
+<li class=""><code>~/map</code> (nav_msgs/OccupancyGrid) - Static map</li>
+</ul>
+<p><strong>Manipulation:</strong></p>
+<ul>
+<li class=""><code>~/manipulation_goal</code> (std_msgs/String) - Manipulation tasks</li>
+<li class=""><code>~/joint_commands</code> (sensor_msgs/JointState) - Joint position commands</li>
+<li class=""><code>~/grasp_status</code> (std_msgs/String) - Grasp success/failure</li>
+</ul>
+<p><strong>Perception:</strong></p>
+<ul>
+<li class=""><code>~/camera/image_raw</code> (sensor_msgs/Image) - Raw camera images</li>
+<li class=""><code>~/detected_objects</code> (std_msgs/String) - Detected objects with poses</li>
+<li class=""><code>~/object_pointcloud</code> (sensor_msgs/PointCloud2) - 3D object data</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="action-servers">Action Servers<a href="#action-servers" class="hash-link" aria-label="Direct link to Action Servers" title="Direct link to Action Servers" translate="no">​</a></h3>
+<p><strong>Navigation Actions:</strong></p>
+<ul>
+<li class=""><code>~/navigate_to_pose</code> (nav2_msgs/NavigateToPose) - Navigate to specific pose</li>
+<li class=""><code>~/follow_waypoints</code> (nav2_msgs/FollowWaypoints) - Follow a sequence of waypoints</li>
+</ul>
+<p><strong>Manipulation Actions:</strong></p>
+<ul>
+<li class=""><code>~/pick_up_object</code> (custom action) - Pick up a specific object</li>
+<li class=""><code>~/place_object</code> (custom action) - Place object at specific location</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="safety-architecture">Safety Architecture<a href="#safety-architecture" class="hash-link" aria-label="Direct link to Safety Architecture" title="Direct link to Safety Architecture" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="safety-layers">Safety Layers<a href="#safety-layers" class="hash-link" aria-label="Direct link to Safety Layers" title="Direct link to Safety Layers" translate="no">​</a></h3>
+<ol>
+<li class="">
+<p><strong>Hardware Safety Layer:</strong></p>
+<ul>
+<li class="">Emergency stop button</li>
+<li class="">Collision detection sensors</li>
+<li class="">Force/torque limiting</li>
+<li class="">Speed limitations</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Software Safety Layer:</strong></p>
+<ul>
+<li class="">Action validation before execution</li>
+<li class="">Kinematic constraint checking</li>
+<li class="">Obstacle detection and avoidance</li>
+<li class="">Battery level monitoring</li>
+</ul>
+</li>
+<li class="">
+<p><strong>AI Safety Layer:</strong></p>
+<ul>
+<li class="">Plan validation against safety rules</li>
+<li class="">Confidence thresholding</li>
+<li class="">Fallback behaviors</li>
+<li class="">Human-in-the-loop for critical decisions</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="safety-protocols">Safety Protocols<a href="#safety-protocols" class="hash-link" aria-label="Direct link to Safety Protocols" title="Direct link to Safety Protocols" translate="no">​</a></h3>
+<p><strong>Emergency Stop:</strong></p>
+<ul>
+<li class="">Immediate halt of all motion</li>
+<li class="">Safe posture for manipulator arms</li>
+<li class="">Clear path for human intervention</li>
+</ul>
+<p><strong>Obstacle Avoidance:</strong></p>
+<ul>
+<li class="">Real-time LIDAR processing</li>
+<li class="">Dynamic replanning when obstacles detected</li>
+<li class="">Safe stopping distance maintenance</li>
+</ul>
+<p><strong>Failure Recovery:</strong></p>
+<ul>
+<li class="">Graceful degradation of capabilities</li>
+<li class="">Return to safe position when possible</li>
+<li class="">Human notification for intervention</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="performance-considerations">Performance Considerations<a href="#performance-considerations" class="hash-link" aria-label="Direct link to Performance Considerations" title="Direct link to Performance Considerations" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="real-time-requirements">Real-time Requirements<a href="#real-time-requirements" class="hash-link" aria-label="Direct link to Real-time Requirements" title="Direct link to Real-time Requirements" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Audio Processing:</strong> <!-- -->&lt;<!-- -->50ms latency</li>
+<li class=""><strong>Navigation Planning:</strong> <!-- -->&lt;<!-- -->100ms for local planning, <!-- -->&lt;<!-- -->1s for global planning</li>
+<li class=""><strong>Manipulation Control:</strong> <!-- -->&lt;<!-- -->10ms for joint control loops</li>
+<li class=""><strong>Object Detection:</strong> <!-- -->&lt;<!-- -->200ms for perception pipeline</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="resource-management">Resource Management<a href="#resource-management" class="hash-link" aria-label="Direct link to Resource Management" title="Direct link to Resource Management" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>CPU:</strong> Multi-core processor for parallel processing</li>
+<li class=""><strong>GPU:</strong> Dedicated GPU for AI inference</li>
+<li class=""><strong>Memory:</strong> Sufficient RAM for perception and planning</li>
+<li class=""><strong>Storage:</strong> Fast SSD for map and model storage</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="communication-optimization">Communication Optimization<a href="#communication-optimization" class="hash-link" aria-label="Direct link to Communication Optimization" title="Direct link to Communication Optimization" translate="no">​</a></h3>
+<ul>
+<li class=""><strong>Message Compression:</strong> Compress large data like images</li>
+<li class=""><strong>Throttling:</strong> Control message rates for non-critical data</li>
+<li class=""><strong>QoS Settings:</strong> Use appropriate QoS for different message types</li>
+<li class=""><strong>Connection Management:</strong> Efficient publisher/subscriber management</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="integration-patterns">Integration Patterns<a href="#integration-patterns" class="hash-link" aria-label="Direct link to Integration Patterns" title="Direct link to Integration Patterns" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="publisher-subscriber-pattern">Publisher-Subscriber Pattern<a href="#publisher-subscriber-pattern" class="hash-link" aria-label="Direct link to Publisher-Subscriber Pattern" title="Direct link to Publisher-Subscriber Pattern" translate="no">​</a></h3>
+<p>Used for real-time sensor data and status updates:</p>
+<ul>
+<li class="">Sensors publish data to topics</li>
+<li class="">Multiple nodes can subscribe to same data</li>
+<li class="">Loose coupling between components</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="client-server-pattern">Client-Server Pattern<a href="#client-server-pattern" class="hash-link" aria-label="Direct link to Client-Server Pattern" title="Direct link to Client-Server Pattern" translate="no">​</a></h3>
+<p>Used for request-response interactions:</p>
+<ul>
+<li class="">Navigation server handles path planning requests</li>
+<li class="">Perception server processes detection requests</li>
+<li class="">Clear interface definition</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="action-pattern">Action Pattern<a href="#action-pattern" class="hash-link" aria-label="Direct link to Action Pattern" title="Direct link to Action Pattern" translate="no">​</a></h3>
+<p>Used for long-running tasks with feedback:</p>
+<ul>
+<li class="">Navigation tasks with progress feedback</li>
+<li class="">Manipulation tasks with execution status</li>
+<li class="">Cancel capability for long tasks</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="testing-architecture">Testing Architecture<a href="#testing-architecture" class="hash-link" aria-label="Direct link to Testing Architecture" title="Direct link to Testing Architecture" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="unit-testing">Unit Testing<a href="#unit-testing" class="hash-link" aria-label="Direct link to Unit Testing" title="Direct link to Unit Testing" translate="no">​</a></h3>
+<p>Each module has dedicated unit tests:</p>
+<ul>
+<li class="">Audio processing with sample audio files</li>
+<li class="">NLP with various command phrases</li>
+<li class="">Navigation with simulated sensor data</li>
+<li class="">Manipulation with joint position simulations</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="integration-testing">Integration Testing<a href="#integration-testing" class="hash-link" aria-label="Direct link to Integration Testing" title="Direct link to Integration Testing" translate="no">​</a></h3>
+<p>Test component interactions:</p>
+<ul>
+<li class="">End-to-end command processing</li>
+<li class="">Sensor data flow validation</li>
+<li class="">Action execution verification</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="system-testing">System Testing<a href="#system-testing" class="hash-link" aria-label="Direct link to System Testing" title="Direct link to System Testing" translate="no">​</a></h3>
+<p>Test complete system behavior:</p>
+<ul>
+<li class="">Full voice-to-action pipeline</li>
+<li class="">Navigation in complex environments</li>
+<li class="">Object manipulation tasks</li>
+<li class="">Safety system validation</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="deployment-architecture">Deployment Architecture<a href="#deployment-architecture" class="hash-link" aria-label="Direct link to Deployment Architecture" title="Direct link to Deployment Architecture" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="development-environment">Development Environment<a href="#development-environment" class="hash-link" aria-label="Direct link to Development Environment" title="Direct link to Development Environment" translate="no">​</a></h3>
+<ul>
+<li class="">Local development with simulation</li>
+<li class="">Unit and integration testing</li>
+<li class="">Component-by-component integration</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="simulation-environment">Simulation Environment<a href="#simulation-environment" class="hash-link" aria-label="Direct link to Simulation Environment" title="Direct link to Simulation Environment" translate="no">​</a></h3>
+<ul>
+<li class="">Gazebo for physics simulation</li>
+<li class="">RViz for visualization</li>
+<li class="">Behavior validation before hardware testing</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="hardware-deployment">Hardware Deployment<a href="#hardware-deployment" class="hash-link" aria-label="Direct link to Hardware Deployment" title="Direct link to Hardware Deployment" translate="no">​</a></h3>
+<ul>
+<li class="">Robot-specific configuration</li>
+<li class="">Calibration procedures</li>
+<li class="">Performance optimization</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="security-architecture">Security Architecture<a href="#security-architecture" class="hash-link" aria-label="Direct link to Security Architecture" title="Direct link to Security Architecture" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="data-privacy">Data Privacy<a href="#data-privacy" class="hash-link" aria-label="Direct link to Data Privacy" title="Direct link to Data Privacy" translate="no">​</a></h3>
+<ul>
+<li class="">On-device processing where possible</li>
+<li class="">Encrypted communication channels</li>
+<li class="">Minimal data retention</li>
+<li class="">User consent for data collection</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="system-security">System Security<a href="#system-security" class="hash-link" aria-label="Direct link to System Security" title="Direct link to System Security" translate="no">​</a></h3>
+<ul>
+<li class="">Secure boot and firmware validation</li>
+<li class="">Network security and authentication</li>
+<li class="">Access control for robot systems</li>
+<li class="">Regular security updates</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="monitoring-and-logging">Monitoring and Logging<a href="#monitoring-and-logging" class="hash-link" aria-label="Direct link to Monitoring and Logging" title="Direct link to Monitoring and Logging" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="system-monitoring">System Monitoring<a href="#system-monitoring" class="hash-link" aria-label="Direct link to System Monitoring" title="Direct link to System Monitoring" translate="no">​</a></h3>
+<ul>
+<li class="">Component health monitoring</li>
+<li class="">Performance metrics tracking</li>
+<li class="">Resource utilization monitoring</li>
+<li class="">Error detection and reporting</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="logging-strategy">Logging Strategy<a href="#logging-strategy" class="hash-link" aria-label="Direct link to Logging Strategy" title="Direct link to Logging Strategy" translate="no">​</a></h3>
+<ul>
+<li class="">Structured logging for analysis</li>
+<li class="">Different log levels for debugging</li>
+<li class="">Log rotation and archival</li>
+<li class="">Centralized log collection</li>
+</ul>
+<p>This architecture provides a robust foundation for the autonomous humanoid capstone project, enabling the integration of all learned concepts into a functional, safe, and efficient robotic system.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/your-organization/physical-ai-humanoid-robotics-book/edit/main/book/docs/capstone-project/capstone-architecture.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/physical-ai-humanoid-robotics-book/docs/capstone-project/autonomous-humanoid"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Autonomous Humanoid Capstone Project</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/physical-ai-humanoid-robotics-book/docs/capstone-project/implementation-guide"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Capstone Implementation Guide</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#system-architecture-overview" class="table-of-contents__link toc-highlight">System Architecture Overview</a></li><li><a href="#detailed-component-design" class="table-of-contents__link toc-highlight">Detailed Component Design</a><ul><li><a href="#1-voice-input-processing-module" class="table-of-contents__link toc-highlight">1. Voice Input Processing Module</a></li><li><a href="#2-nlp--planning-module" class="table-of-contents__link toc-highlight">2. NLP &amp; Planning Module</a></li><li><a href="#3-navigation--path-planning-module" class="table-of-contents__link toc-highlight">3. Navigation &amp; Path Planning Module</a></li><li><a href="#4-ros-2-action-execution-module" class="table-of-contents__link toc-highlight">4. ROS 2 Action Execution Module</a></li><li><a href="#5-manipulation-controller-module" class="table-of-contents__link toc-highlight">5. Manipulation Controller Module</a></li><li><a href="#6-perception-system" class="table-of-contents__link toc-highlight">6. Perception System</a></li></ul></li><li><a href="#data-flow-design" class="table-of-contents__link toc-highlight">Data Flow Design</a><ul><li><a href="#command-processing-flow" class="table-of-contents__link toc-highlight">Command Processing Flow</a></li><li><a href="#perception-processing-flow" class="table-of-contents__link toc-highlight">Perception Processing Flow</a></li></ul></li><li><a href="#communication-architecture" class="table-of-contents__link toc-highlight">Communication Architecture</a><ul><li><a href="#ros-2-topics-and-services" class="table-of-contents__link toc-highlight">ROS 2 Topics and Services</a></li><li><a href="#action-servers" class="table-of-contents__link toc-highlight">Action Servers</a></li></ul></li><li><a href="#safety-architecture" class="table-of-contents__link toc-highlight">Safety Architecture</a><ul><li><a href="#safety-layers" class="table-of-contents__link toc-highlight">Safety Layers</a></li><li><a href="#safety-protocols" class="table-of-contents__link toc-highlight">Safety Protocols</a></li></ul></li><li><a href="#performance-considerations" class="table-of-contents__link toc-highlight">Performance Considerations</a><ul><li><a href="#real-time-requirements" class="table-of-contents__link toc-highlight">Real-time Requirements</a></li><li><a href="#resource-management" class="table-of-contents__link toc-highlight">Resource Management</a></li><li><a href="#communication-optimization" class="table-of-contents__link toc-highlight">Communication Optimization</a></li></ul></li><li><a href="#integration-patterns" class="table-of-contents__link toc-highlight">Integration Patterns</a><ul><li><a href="#publisher-subscriber-pattern" class="table-of-contents__link toc-highlight">Publisher-Subscriber Pattern</a></li><li><a href="#client-server-pattern" class="table-of-contents__link toc-highlight">Client-Server Pattern</a></li><li><a href="#action-pattern" class="table-of-contents__link toc-highlight">Action Pattern</a></li></ul></li><li><a href="#testing-architecture" class="table-of-contents__link toc-highlight">Testing Architecture</a><ul><li><a href="#unit-testing" class="table-of-contents__link toc-highlight">Unit Testing</a></li><li><a href="#integration-testing" class="table-of-contents__link toc-highlight">Integration Testing</a></li><li><a href="#system-testing" class="table-of-contents__link toc-highlight">System Testing</a></li></ul></li><li><a href="#deployment-architecture" class="table-of-contents__link toc-highlight">Deployment Architecture</a><ul><li><a href="#development-environment" class="table-of-contents__link toc-highlight">Development Environment</a></li><li><a href="#simulation-environment" class="table-of-contents__link toc-highlight">Simulation Environment</a></li><li><a href="#hardware-deployment" class="table-of-contents__link toc-highlight">Hardware Deployment</a></li></ul></li><li><a href="#security-architecture" class="table-of-contents__link toc-highlight">Security Architecture</a><ul><li><a href="#data-privacy" class="table-of-contents__link toc-highlight">Data Privacy</a></li><li><a href="#system-security" class="table-of-contents__link toc-highlight">System Security</a></li></ul></li><li><a href="#monitoring-and-logging" class="table-of-contents__link toc-highlight">Monitoring and Logging</a><ul><li><a href="#system-monitoring" class="table-of-contents__link toc-highlight">System Monitoring</a></li><li><a href="#logging-strategy" class="table-of-contents__link toc-highlight">Logging Strategy</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/physical-ai-humanoid-robotics-book/docs/module-1-ros-fundamentals/introduction-to-ros2">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/physical-ai-humanoid-robotics-book/docs/module-2-digital-twin/gazebo-simulation">Gazebo Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/physical-ai-humanoid-robotics-book/docs/module-3-ai-robot-brain/isaac-sdk-overview">NVIDIA Isaac Platform</a></li><li class="footer__item"><a class="footer__link-item" href="/physical-ai-humanoid-robotics-book/docs/module-4-vision-language-action/whisper-integration">Conversational Robotics</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://discordapp.com/invite/physical-ai" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/physical_ai" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/your-organization/physical-ai-humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

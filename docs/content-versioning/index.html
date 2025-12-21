@@ -1,0 +1,340 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-default docs-version-current docs-doc-page docs-doc-id-content-versioning" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.9.2">
+<title data-rh="true">Content Versioning Strategy | Physical AI &amp; Humanoid Robotics</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://your-username.github.io/physical-ai-humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" name="twitter:image" content="https://your-username.github.io/physical-ai-humanoid-robotics-book/img/docusaurus-social-card.jpg"><meta data-rh="true" property="og:url" content="https://your-username.github.io/physical-ai-humanoid-robotics-book/docs/content-versioning"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-default-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-default-current"><meta data-rh="true" property="og:title" content="Content Versioning Strategy | Physical AI &amp; Humanoid Robotics"><meta data-rh="true" name="description" content="Strategy for managing content versions and updates in the robotics book"><meta data-rh="true" property="og:description" content="Strategy for managing content versions and updates in the robotics book"><link data-rh="true" rel="icon" href="/physical-ai-humanoid-robotics-book/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://your-username.github.io/physical-ai-humanoid-robotics-book/docs/content-versioning"><link data-rh="true" rel="alternate" href="https://your-username.github.io/physical-ai-humanoid-robotics-book/docs/content-versioning" hreflang="en"><link data-rh="true" rel="alternate" href="https://your-username.github.io/physical-ai-humanoid-robotics-book/docs/content-versioning" hreflang="x-default"><link data-rh="true" rel="preconnect" href="https://YOUR_APP_ID-dsn.algolia.net" crossorigin="anonymous"><link rel="alternate" type="application/rss+xml" href="/physical-ai-humanoid-robotics-book/blog/rss.xml" title="Physical AI &amp; Humanoid Robotics RSS Feed">
+<link rel="alternate" type="application/atom+xml" href="/physical-ai-humanoid-robotics-book/blog/atom.xml" title="Physical AI &amp; Humanoid Robotics Atom Feed">
+
+
+
+
+<link rel="search" type="application/opensearchdescription+xml" title="Physical AI &amp; Humanoid Robotics" href="/physical-ai-humanoid-robotics-book/opensearch.xml"><link rel="stylesheet" href="/physical-ai-humanoid-robotics-book/assets/css/styles.9a485ed3.css">
+<script src="/physical-ai-humanoid-robotics-book/assets/js/runtime~main.fd4f4f83.js" defer="defer"></script>
+<script src="/physical-ai-humanoid-robotics-book/assets/js/main.fbd0b622.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",t||(window.matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light")),document.documentElement.setAttribute("data-theme-choice",t||"system")}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/physical-ai-humanoid-robotics-book/img/logo.svg"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/physical-ai-humanoid-robotics-book/"><div class="navbar__logo"><img src="/physical-ai-humanoid-robotics-book/img/logo.svg" alt="Physical AI Logo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/physical-ai-humanoid-robotics-book/img/logo.svg" alt="Physical AI Logo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Physical AI &amp; Humanoid Robotics</b></a><a class="navbar__item navbar__link" href="/physical-ai-humanoid-robotics-book/docs/preface">Book</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a class="navbar__item navbar__link" href="/physical-ai-humanoid-robotics-book/docs/module-1-ros-fundamentals/introduction-to-ros2">Start Reading</a><a href="https://github.com/your-organization/physical-ai-humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"><button type="button" class="DocSearch DocSearch-Button" aria-label="Search (Meta+k)" aria-keyshortcuts="Meta+k"><span class="DocSearch-Button-Container"><svg width="20" height="20" class="DocSearch-Search-Icon" viewBox="0 0 24 24" aria-hidden="true"><circle cx="11" cy="11" r="8" stroke="currentColor" fill="none" stroke-width="1.4"></circle><path d="m21 21-4.3-4.3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg><span class="DocSearch-Button-Placeholder">Search</span></span><span class="DocSearch-Button-Keys"></span></button></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><main class="docMainContainer_TBSr docMainContainerEnhanced_lQrH"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Content Versioning Strategy</h1></header>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="overview">Overview<a href="#overview" class="hash-link" aria-label="Direct link to Overview" title="Direct link to Overview" translate="no">​</a></h2>
+<p>This document outlines the versioning strategy for the Physical AI &amp; Humanoid Robotics book. The strategy ensures content remains current, accurate, and properly tracked while maintaining backward compatibility for educational purposes where appropriate.</p>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="versioning-system">Versioning System<a href="#versioning-system" class="hash-link" aria-label="Direct link to Versioning System" title="Direct link to Versioning System" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="semantic-versioning-approach">Semantic Versioning Approach<a href="#semantic-versioning-approach" class="hash-link" aria-label="Direct link to Semantic Versioning Approach" title="Direct link to Semantic Versioning Approach" translate="no">​</a></h3>
+<p>The book follows semantic versioning principles adapted for educational content:</p>
+<ul>
+<li class=""><strong>Major Version (X.0.0)</strong>: Significant content reorganization, new modules, or fundamental changes to core concepts</li>
+<li class=""><strong>Minor Version (X.Y.0)</strong>: New chapters, significant additions to existing content, or updates to reflect new technology</li>
+<li class=""><strong>Patch Version (X.Y.Z)</strong>: Corrections, clarifications, minor additions, and bug fixes</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-format">Version Format<a href="#version-format" class="hash-link" aria-label="Direct link to Version Format" title="Direct link to Version Format" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">v{major}.{minor}.{patch}[-{prerelease}] (YYYY-MM-DD)</span><br></span></code></pre></div></div>
+<p>Examples:</p>
+<ul>
+<li class=""><code>v1.0.0</code> (2025-01-15) - Initial release</li>
+<li class=""><code>v1.1.0</code> (2025-06-01) - Added new module on conversational AI</li>
+<li class=""><code>v1.2.1</code> (2025-08-15) - Bug fixes and clarifications</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="content-change-management">Content Change Management<a href="#content-change-management" class="hash-link" aria-label="Direct link to Content Change Management" title="Direct link to Content Change Management" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="change-classification">Change Classification<a href="#change-classification" class="hash-link" aria-label="Direct link to Change Classification" title="Direct link to Change Classification" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="breaking-changes">Breaking Changes<a href="#breaking-changes" class="hash-link" aria-label="Direct link to Breaking Changes" title="Direct link to Breaking Changes" translate="no">​</a></h4>
+<p>Changes that affect the learning progression or require students to relearn concepts:</p>
+<ul>
+<li class="">Fundamental concept redefinitions</li>
+<li class="">Major reorganization of learning modules</li>
+<li class="">Removal of core content without equivalent replacement</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="non-breaking-changes">Non-Breaking Changes<a href="#non-breaking-changes" class="hash-link" aria-label="Direct link to Non-Breaking Changes" title="Direct link to Non-Breaking Changes" translate="no">​</a></h4>
+<p>Changes that enhance or clarify without disrupting learning:</p>
+<ul>
+<li class="">Addition of new examples</li>
+<li class="">Clarifications and corrections</li>
+<li class="">New exercises or assessment questions</li>
+<li class="">Updated code examples for new API versions</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="deprecation-strategy">Deprecation Strategy<a href="#deprecation-strategy" class="hash-link" aria-label="Direct link to Deprecation Strategy" title="Direct link to Deprecation Strategy" translate="no">​</a></h4>
+<p>When content becomes outdated:</p>
+<ol>
+<li class="">Mark content as &quot;deprecated&quot; with a clear timeline</li>
+<li class="">Provide alternative resources or updated content</li>
+<li class="">Maintain deprecated content for reference during transition period</li>
+<li class="">Remove content after appropriate notice period</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-control-practices">Version Control Practices<a href="#version-control-practices" class="hash-link" aria-label="Direct link to Version Control Practices" title="Direct link to Version Control Practices" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="git-workflow">Git Workflow<a href="#git-workflow" class="hash-link" aria-label="Direct link to Git Workflow" title="Direct link to Git Workflow" translate="no">​</a></h4>
+<div class="language-bash codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-bash codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token comment" style="color:#999988;font-style:italic"># Main branches</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">main           </span><span class="token comment" style="color:#999988;font-style:italic"># Stable, published content</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">develop        </span><span class="token comment" style="color:#999988;font-style:italic"># Next version development</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">release/vX.Y.Z </span><span class="token comment" style="color:#999988;font-style:italic"># Release preparation</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token comment" style="color:#999988;font-style:italic"># Feature branches</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">feature/module-4-enhancements</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">bugfix/typo-in-chapter-3</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">hotfix/urgent-correction</span><br></span></code></pre></div></div>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="commit-message-standards">Commit Message Standards<a href="#commit-message-standards" class="hash-link" aria-label="Direct link to Commit Message Standards" title="Direct link to Commit Message Standards" translate="no">​</a></h4>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">type(scope): brief description</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">More detailed explanation if needed</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- List of changes</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Closes #issue-number if applicable</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Signed-off-by: Author Name &lt;email@example.com&gt;</span><br></span></code></pre></div></div>
+<p>Examples:</p>
+<ul>
+<li class=""><code>feat(module-4): add new chapter on LLM integration</code></li>
+<li class=""><code>fix(ros2-fundamentals): correct code example in publisher pattern</code></li>
+<li class=""><code>docs(glossary): add definitions for new terminology</code></li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="content-lifecycle-management">Content Lifecycle Management<a href="#content-lifecycle-management" class="hash-link" aria-label="Direct link to Content Lifecycle Management" title="Direct link to Content Lifecycle Management" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="content-creation-process">Content Creation Process<a href="#content-creation-process" class="hash-link" aria-label="Direct link to Content Creation Process" title="Direct link to Content Creation Process" translate="no">​</a></h3>
+<ol>
+<li class="">
+<p><strong>Proposal Phase</strong></p>
+<ul>
+<li class="">Define learning objectives</li>
+<li class="">Outline content structure</li>
+<li class="">Identify target audience level</li>
+<li class="">Estimate time investment</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Development Phase</strong></p>
+<ul>
+<li class="">Create initial draft</li>
+<li class="">Include examples and exercises</li>
+<li class="">Add accessibility features</li>
+<li class="">Implement search optimization</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Review Phase</strong></p>
+<ul>
+<li class="">Technical accuracy review</li>
+<li class="">Educational effectiveness review</li>
+<li class="">Accessibility compliance check</li>
+<li class="">Peer review by domain experts</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Testing Phase</strong></p>
+<ul>
+<li class="">Beta testing with learners</li>
+<li class="">Integration testing with platform</li>
+<li class="">Accessibility testing</li>
+<li class="">Performance testing</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Release Phase</strong></p>
+<ul>
+<li class="">Version assignment</li>
+<li class="">Changelog creation</li>
+<li class="">Documentation update</li>
+<li class="">Public announcement</li>
+</ul>
+</li>
+</ol>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="content-review-schedule">Content Review Schedule<a href="#content-review-schedule" class="hash-link" aria-label="Direct link to Content Review Schedule" title="Direct link to Content Review Schedule" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="regular-reviews">Regular Reviews<a href="#regular-reviews" class="hash-link" aria-label="Direct link to Regular Reviews" title="Direct link to Regular Reviews" translate="no">​</a></h4>
+<ul>
+<li class=""><strong>Annual Review</strong>: Comprehensive content review and update</li>
+<li class=""><strong>Semi-Annual Review</strong>: Technology-specific updates</li>
+<li class=""><strong>Quarterly Review</strong>: Corrections and minor improvements</li>
+<li class=""><strong>Monthly Review</strong>: Urgent fixes and security updates</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="trigger-based-reviews">Trigger-Based Reviews<a href="#trigger-based-reviews" class="hash-link" aria-label="Direct link to Trigger-Based Reviews" title="Direct link to Trigger-Based Reviews" translate="no">​</a></h4>
+<ul>
+<li class="">New technology releases (ROS 2, Gazebo, etc.)</li>
+<li class="">Security vulnerabilities in referenced tools</li>
+<li class="">Significant industry changes</li>
+<li class="">Learner feedback patterns</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-compatibility">Version Compatibility<a href="#version-compatibility" class="hash-link" aria-label="Direct link to Version Compatibility" title="Direct link to Version Compatibility" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="backward-compatibility-guidelines">Backward Compatibility Guidelines<a href="#backward-compatibility-guidelines" class="hash-link" aria-label="Direct link to Backward Compatibility Guidelines" title="Direct link to Backward Compatibility Guidelines" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="maintained-compatibility">Maintained Compatibility<a href="#maintained-compatibility" class="hash-link" aria-label="Direct link to Maintained Compatibility" title="Direct link to Maintained Compatibility" translate="no">​</a></h4>
+<ul>
+<li class="">Code examples remain functional with recent ROS 2 versions</li>
+<li class="">Core concepts remain valid across versions</li>
+<li class="">Exercise solutions remain applicable</li>
+<li class="">Assessment questions remain relevant</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="compatibility-exceptions">Compatibility Exceptions<a href="#compatibility-exceptions" class="hash-link" aria-label="Direct link to Compatibility Exceptions" title="Direct link to Compatibility Exceptions" translate="no">​</a></h4>
+<ul>
+<li class="">Deprecated APIs and tools</li>
+<li class="">Outdated hardware specifications</li>
+<li class="">Superseded best practices</li>
+<li class="">Technology-specific changes</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="migration-path-documentation">Migration Path Documentation<a href="#migration-path-documentation" class="hash-link" aria-label="Direct link to Migration Path Documentation" title="Direct link to Migration Path Documentation" translate="no">​</a></h3>
+<p>When breaking changes occur, provide:</p>
+<ol>
+<li class=""><strong>Migration Guide</strong>: Step-by-step instructions for updating</li>
+<li class=""><strong>Comparison Tables</strong>: Old vs. new approaches</li>
+<li class=""><strong>Timeline</strong>: Support periods for old versions</li>
+<li class=""><strong>Resources</strong>: Additional help and examples</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-management">Release Management<a href="#release-management" class="hash-link" aria-label="Direct link to Release Management" title="Direct link to Release Management" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-types">Release Types<a href="#release-types" class="hash-link" aria-label="Direct link to Release Types" title="Direct link to Release Types" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="major-releases">Major Releases<a href="#major-releases" class="hash-link" aria-label="Direct link to Major Releases" title="Direct link to Major Releases" translate="no">​</a></h4>
+<ul>
+<li class="">Significant content additions (new modules)</li>
+<li class="">Fundamental approach changes</li>
+<li class="">Platform or technology migrations</li>
+<li class="">Timeline: 12-18 months</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="minor-releases">Minor Releases<a href="#minor-releases" class="hash-link" aria-label="Direct link to Minor Releases" title="Direct link to Minor Releases" translate="no">​</a></h4>
+<ul>
+<li class="">New chapters or significant additions</li>
+<li class="">Technology updates and integration</li>
+<li class="">Major feature additions</li>
+<li class="">Timeline: 3-6 months</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="patch-releases">Patch Releases<a href="#patch-releases" class="hash-link" aria-label="Direct link to Patch Releases" title="Direct link to Patch Releases" translate="no">​</a></h4>
+<ul>
+<li class="">Corrections and bug fixes</li>
+<li class="">Minor content improvements</li>
+<li class="">Accessibility updates</li>
+<li class="">Timeline: As needed, typically monthly</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="release-process">Release Process<a href="#release-process" class="hash-link" aria-label="Direct link to Release Process" title="Direct link to Release Process" translate="no">​</a></h3>
+<ol>
+<li class="">
+<p><strong>Pre-Release Checklist</strong></p>
+<ul>
+<li class="">All tests pass</li>
+<li class="">Accessibility review complete</li>
+<li class="">Content accuracy verified</li>
+<li class="">Search indexing updated</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Release Candidate Phase</strong></p>
+<ul>
+<li class="">Beta testing with limited audience</li>
+<li class="">Final corrections based on feedback</li>
+<li class="">Performance validation</li>
+<li class="">Documentation finalization</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Release Phase</strong></p>
+<ul>
+<li class="">Version tag creation</li>
+<li class="">Content deployment</li>
+<li class="">Index update</li>
+<li class="">Announcement publication</li>
+</ul>
+</li>
+<li class="">
+<p><strong>Post-Release Activities</strong></p>
+<ul>
+<li class="">Monitoring for issues</li>
+<li class="">User feedback collection</li>
+<li class="">Analytics review</li>
+<li class="">Next version planning</li>
+</ul>
+</li>
+</ol>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="documentation-standards">Documentation Standards<a href="#documentation-standards" class="hash-link" aria-label="Direct link to Documentation Standards" title="Direct link to Documentation Standards" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="changelog-format">Changelog Format<a href="#changelog-format" class="hash-link" aria-label="Direct link to Changelog Format" title="Direct link to Changelog Format" translate="no">​</a></h3>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain"># Changelog</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">All notable changes to this project will be documented in this file.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">## [Unreleased]</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">### Added</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- New content or features</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">### Changed  </span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Modifications to existing content</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">### Deprecated</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Soon-to-be removed content</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">### Removed</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Content that has been removed</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">### Fixed</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Corrections and bug fixes</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">### Security</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">- Security-related improvements</span><br></span></code></pre></div></div>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="version-metadata">Version Metadata<a href="#version-metadata" class="hash-link" aria-label="Direct link to Version Metadata" title="Direct link to Version Metadata" translate="no">​</a></h3>
+<p>Each content file includes version metadata:</p>
+<div class="language-markdown codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-markdown codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token front-matter-block punctuation" style="color:#393A34">---</span><span class="token front-matter-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token front-matter-block"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule" style="color:#00a4db">title</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">:</span><span class="token front-matter-block front-matter yaml language-yaml"> Chapter Title</span><br></span><span class="token-line" style="color:#393A34"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule" style="color:#00a4db">description</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">:</span><span class="token front-matter-block front-matter yaml language-yaml"> Chapter description</span><br></span><span class="token-line" style="color:#393A34"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule" style="color:#00a4db">version</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">:</span><span class="token front-matter-block front-matter yaml language-yaml"> 1.2.0</span><br></span><span class="token-line" style="color:#393A34"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule" style="color:#00a4db">last_updated</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">:</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><span class="token front-matter-block front-matter yaml language-yaml datetime number" style="color:#36acaa">2025-01-15</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></span><span class="token-line" style="color:#393A34"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule" style="color:#00a4db">compatibility</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">:</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><br></span><span class="token-line" style="color:#393A34"><span class="token front-matter-block front-matter yaml language-yaml">  </span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">-</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><span class="token front-matter-block front-matter yaml language-yaml key atrule" style="color:#00a4db">ros2</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">:</span><span class="token front-matter-block front-matter yaml language-yaml"> humble</span><br></span><span class="token-line" style="color:#393A34"><span class="token front-matter-block front-matter yaml language-yaml">  </span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">-</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><span class="token front-matter-block front-matter yaml language-yaml key atrule" style="color:#00a4db">gazebo</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">:</span><span class="token front-matter-block front-matter yaml language-yaml"> fortress</span><br></span><span class="token-line" style="color:#393A34"><span class="token front-matter-block front-matter yaml language-yaml">  </span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">-</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><span class="token front-matter-block front-matter yaml language-yaml key atrule" style="color:#00a4db">python</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">:</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><span class="token front-matter-block front-matter yaml language-yaml string" style="color:#e3116c">&quot;&gt;=3.8&quot;</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></span><span class="token-line" style="color:#393A34"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule" style="color:#00a4db">deprecated</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">:</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><span class="token front-matter-block front-matter yaml language-yaml boolean important" style="color:#36acaa">false</span><span class="token front-matter-block front-matter yaml language-yaml"></span><br></span><span class="token-line" style="color:#393A34"><span class="token front-matter-block front-matter yaml language-yaml"></span><span class="token front-matter-block front-matter yaml language-yaml key atrule" style="color:#00a4db">replacement</span><span class="token front-matter-block front-matter yaml language-yaml punctuation" style="color:#393A34">:</span><span class="token front-matter-block front-matter yaml language-yaml"> </span><span class="token front-matter-block front-matter yaml language-yaml null important">null</span><span class="token front-matter-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token front-matter-block"></span><span class="token front-matter-block punctuation" style="color:#393A34">---</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain"></span><span class="token title important punctuation" style="color:#393A34">#</span><span class="token title important"> Chapter Title</span><span class="token plain"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain" style="display:inline-block"></span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Content...</span><br></span></code></pre></div></div>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="quality-assurance">Quality Assurance<a href="#quality-assurance" class="hash-link" aria-label="Direct link to Quality Assurance" title="Direct link to Quality Assurance" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="content-quality-metrics">Content Quality Metrics<a href="#content-quality-metrics" class="hash-link" aria-label="Direct link to Content Quality Metrics" title="Direct link to Content Quality Metrics" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="accuracy-metrics">Accuracy Metrics<a href="#accuracy-metrics" class="hash-link" aria-label="Direct link to Accuracy Metrics" title="Direct link to Accuracy Metrics" translate="no">​</a></h4>
+<ul>
+<li class="">Technical correctness score</li>
+<li class="">Factual accuracy verification</li>
+<li class="">Expert review ratings</li>
+<li class="">Learner assessment performance</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="educational-effectiveness">Educational Effectiveness<a href="#educational-effectiveness" class="hash-link" aria-label="Direct link to Educational Effectiveness" title="Direct link to Educational Effectiveness" translate="no">​</a></h4>
+<ul>
+<li class="">Learner engagement metrics</li>
+<li class="">Completion rates</li>
+<li class="">Assessment scores</li>
+<li class="">Feedback ratings</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="accessibility-compliance">Accessibility Compliance<a href="#accessibility-compliance" class="hash-link" aria-label="Direct link to Accessibility Compliance" title="Direct link to Accessibility Compliance" translate="no">​</a></h4>
+<ul>
+<li class="">WCAG 2.1 AA compliance</li>
+<li class="">Screen reader compatibility</li>
+<li class="">Keyboard navigation</li>
+<li class="">Color contrast ratios</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="testing-procedures">Testing Procedures<a href="#testing-procedures" class="hash-link" aria-label="Direct link to Testing Procedures" title="Direct link to Testing Procedures" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="automated-testing">Automated Testing<a href="#automated-testing" class="hash-link" aria-label="Direct link to Automated Testing" title="Direct link to Automated Testing" translate="no">​</a></h4>
+<ul>
+<li class="">Link validation</li>
+<li class="">Code example compilation</li>
+<li class="">Accessibility scanning</li>
+<li class="">Search index validation</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="manual-testing">Manual Testing<a href="#manual-testing" class="hash-link" aria-label="Direct link to Manual Testing" title="Direct link to Manual Testing" translate="no">​</a></h4>
+<ul>
+<li class="">Expert technical review</li>
+<li class="">Educational effectiveness review</li>
+<li class="">Accessibility testing with assistive technologies</li>
+<li class="">Cross-browser compatibility</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="communication-strategy">Communication Strategy<a href="#communication-strategy" class="hash-link" aria-label="Direct link to Communication Strategy" title="Direct link to Communication Strategy" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="stakeholder-notification">Stakeholder Notification<a href="#stakeholder-notification" class="hash-link" aria-label="Direct link to Stakeholder Notification" title="Direct link to Stakeholder Notification" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="content-creators">Content Creators<a href="#content-creators" class="hash-link" aria-label="Direct link to Content Creators" title="Direct link to Content Creators" translate="no">​</a></h4>
+<ul>
+<li class="">Version planning meetings</li>
+<li class="">Review schedule notifications</li>
+<li class="">Tool and process updates</li>
+<li class="">Training on new features</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="learners">Learners<a href="#learners" class="hash-link" aria-label="Direct link to Learners" title="Direct link to Learners" translate="no">​</a></h4>
+<ul>
+<li class="">Release announcements</li>
+<li class="">Change summaries</li>
+<li class="">Migration guides</li>
+<li class="">Support resources</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="platform-administrators">Platform Administrators<a href="#platform-administrators" class="hash-link" aria-label="Direct link to Platform Administrators" title="Direct link to Platform Administrators" translate="no">​</a></h4>
+<ul>
+<li class="">Deployment requirements</li>
+<li class="">System updates needed</li>
+<li class="">Performance considerations</li>
+<li class="">Monitoring changes</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="feedback-integration">Feedback Integration<a href="#feedback-integration" class="hash-link" aria-label="Direct link to Feedback Integration" title="Direct link to Feedback Integration" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="collection-mechanisms">Collection Mechanisms<a href="#collection-mechanisms" class="hash-link" aria-label="Direct link to Collection Mechanisms" title="Direct link to Collection Mechanisms" translate="no">​</a></h4>
+<ul>
+<li class="">Built-in feedback forms</li>
+<li class="">Community forums</li>
+<li class="">Direct contact channels</li>
+<li class="">Analytics data</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="response-process">Response Process<a href="#response-process" class="hash-link" aria-label="Direct link to Response Process" title="Direct link to Response Process" translate="no">​</a></h4>
+<ul>
+<li class="">Issue triage and prioritization</li>
+<li class="">Response time commitments</li>
+<li class="">Implementation tracking</li>
+<li class="">Communication of decisions</li>
+</ul>
+<h2 class="anchor anchorTargetStickyNavbar_Vzrq" id="future-considerations">Future Considerations<a href="#future-considerations" class="hash-link" aria-label="Direct link to Future Considerations" title="Direct link to Future Considerations" translate="no">​</a></h2>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="technology-evolution">Technology Evolution<a href="#technology-evolution" class="hash-link" aria-label="Direct link to Technology Evolution" title="Direct link to Technology Evolution" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="anticipated-changes">Anticipated Changes<a href="#anticipated-changes" class="hash-link" aria-label="Direct link to Anticipated Changes" title="Direct link to Anticipated Changes" translate="no">​</a></h4>
+<ul>
+<li class="">ROS 2 Iron and future distributions</li>
+<li class="">New AI and robotics frameworks</li>
+<li class="">Evolving hardware platforms</li>
+<li class="">Updated pedagogical approaches</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="adaptation-strategy">Adaptation Strategy<a href="#adaptation-strategy" class="hash-link" aria-label="Direct link to Adaptation Strategy" title="Direct link to Adaptation Strategy" translate="no">​</a></h4>
+<ul>
+<li class="">Modular content design</li>
+<li class="">Technology-agnostic concepts</li>
+<li class="">Flexible examples and tutorials</li>
+<li class="">Regular technology assessment</li>
+</ul>
+<h3 class="anchor anchorTargetStickyNavbar_Vzrq" id="scalability-planning">Scalability Planning<a href="#scalability-planning" class="hash-link" aria-label="Direct link to Scalability Planning" title="Direct link to Scalability Planning" translate="no">​</a></h3>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="growth-considerations">Growth Considerations<a href="#growth-considerations" class="hash-link" aria-label="Direct link to Growth Considerations" title="Direct link to Growth Considerations" translate="no">​</a></h4>
+<ul>
+<li class="">Additional modules and topics</li>
+<li class="">Multiple language support</li>
+<li class="">Different educational levels</li>
+<li class="">Integration with external tools</li>
+</ul>
+<h4 class="anchor anchorTargetStickyNavbar_Vzrq" id="infrastructure-planning">Infrastructure Planning<a href="#infrastructure-planning" class="hash-link" aria-label="Direct link to Infrastructure Planning" title="Direct link to Infrastructure Planning" translate="no">​</a></h4>
+<ul>
+<li class="">Content management systems</li>
+<li class="">Automated testing frameworks</li>
+<li class="">Internationalization support</li>
+<li class="">Performance optimization</li>
+</ul>
+<p>This versioning strategy ensures the robotics book remains current, accurate, and valuable for learners while maintaining the quality and consistency essential for educational content.</p></div><footer class="theme-doc-footer docusaurus-mt-lg"><div class="row margin-top--sm theme-doc-footer-edit-meta-row"><div class="col noPrint_WFHX"><a href="https://github.com/your-organization/physical-ai-humanoid-robotics-book/edit/main/book/docs/content-versioning.md" target="_blank" rel="noopener noreferrer" class="theme-edit-this-page"><svg fill="currentColor" height="20" width="20" viewBox="0 0 40 40" class="iconEdit_Z9Sw" aria-hidden="true"><g><path d="m34.5 11.7l-3 3.1-6.3-6.3 3.1-3q0.5-0.5 1.2-0.5t1.1 0.5l3.9 3.9q0.5 0.4 0.5 1.1t-0.5 1.2z m-29.5 17.1l18.4-18.5 6.3 6.3-18.4 18.4h-6.3v-6.2z"></path></g></svg>Edit this page</a></div><div class="col lastUpdated_JAkA"></div></div></footer></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#overview" class="table-of-contents__link toc-highlight">Overview</a></li><li><a href="#versioning-system" class="table-of-contents__link toc-highlight">Versioning System</a><ul><li><a href="#semantic-versioning-approach" class="table-of-contents__link toc-highlight">Semantic Versioning Approach</a></li><li><a href="#version-format" class="table-of-contents__link toc-highlight">Version Format</a></li></ul></li><li><a href="#content-change-management" class="table-of-contents__link toc-highlight">Content Change Management</a><ul><li><a href="#change-classification" class="table-of-contents__link toc-highlight">Change Classification</a></li><li><a href="#version-control-practices" class="table-of-contents__link toc-highlight">Version Control Practices</a></li></ul></li><li><a href="#content-lifecycle-management" class="table-of-contents__link toc-highlight">Content Lifecycle Management</a><ul><li><a href="#content-creation-process" class="table-of-contents__link toc-highlight">Content Creation Process</a></li><li><a href="#content-review-schedule" class="table-of-contents__link toc-highlight">Content Review Schedule</a></li></ul></li><li><a href="#version-compatibility" class="table-of-contents__link toc-highlight">Version Compatibility</a><ul><li><a href="#backward-compatibility-guidelines" class="table-of-contents__link toc-highlight">Backward Compatibility Guidelines</a></li><li><a href="#migration-path-documentation" class="table-of-contents__link toc-highlight">Migration Path Documentation</a></li></ul></li><li><a href="#release-management" class="table-of-contents__link toc-highlight">Release Management</a><ul><li><a href="#release-types" class="table-of-contents__link toc-highlight">Release Types</a></li><li><a href="#release-process" class="table-of-contents__link toc-highlight">Release Process</a></li></ul></li><li><a href="#documentation-standards" class="table-of-contents__link toc-highlight">Documentation Standards</a><ul><li><a href="#changelog-format" class="table-of-contents__link toc-highlight">Changelog Format</a></li><li><a href="#version-metadata" class="table-of-contents__link toc-highlight">Version Metadata</a></li></ul></li><li><a href="#quality-assurance" class="table-of-contents__link toc-highlight">Quality Assurance</a><ul><li><a href="#content-quality-metrics" class="table-of-contents__link toc-highlight">Content Quality Metrics</a></li><li><a href="#testing-procedures" class="table-of-contents__link toc-highlight">Testing Procedures</a></li></ul></li><li><a href="#communication-strategy" class="table-of-contents__link toc-highlight">Communication Strategy</a><ul><li><a href="#stakeholder-notification" class="table-of-contents__link toc-highlight">Stakeholder Notification</a></li><li><a href="#feedback-integration" class="table-of-contents__link toc-highlight">Feedback Integration</a></li></ul></li><li><a href="#future-considerations" class="table-of-contents__link toc-highlight">Future Considerations</a><ul><li><a href="#technology-evolution" class="table-of-contents__link toc-highlight">Technology Evolution</a></li><li><a href="#scalability-planning" class="table-of-contents__link toc-highlight">Scalability Planning</a></li></ul></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Chapters</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/physical-ai-humanoid-robotics-book/docs/module-1-ros-fundamentals/introduction-to-ros2">ROS 2 Fundamentals</a></li><li class="footer__item"><a class="footer__link-item" href="/physical-ai-humanoid-robotics-book/docs/module-2-digital-twin/gazebo-simulation">Gazebo Simulation</a></li><li class="footer__item"><a class="footer__link-item" href="/physical-ai-humanoid-robotics-book/docs/module-3-ai-robot-brain/isaac-sdk-overview">NVIDIA Isaac Platform</a></li><li class="footer__item"><a class="footer__link-item" href="/physical-ai-humanoid-robotics-book/docs/module-4-vision-language-action/whisper-integration">Conversational Robotics</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://discordapp.com/invite/physical-ai" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a href="https://x.com/physical_ai" target="_blank" rel="noopener noreferrer" class="footer__link-item">Twitter<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/your-organization/physical-ai-humanoid-robotics-book" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-label="(opens in new tab)" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Physical AI & Humanoid Robotics Book. Built with Docusaurus.</div></div></div></footer></div>
+</body>
+</html>

@@ -1,0 +1,87 @@
+# Voice-to-Action Architecture for Robotics
+
+## Overview
+This diagram illustrates the complete voice-to-action pipeline for robotics, showing how voice commands are processed from capture to robotic action execution.
+
+## Architecture Components
+
+```
+┌─────────────────┐    ┌─────────────────────┐    ┌──────────────────┐
+│   User Voice    │    │  Audio Processing   │    │  Whisper ASR     │
+│   Command       │───▶│  (Preprocessing,    │───▶│  (Speech-to-Text)│
+│                 │    │   Noise Reduction)  │    │                  │
+└─────────────────┘    └─────────────────────┘    └──────────────────┘
+                                                         │
+                    ┌────────────────────────────────────┘
+                    ▼
+        ┌─────────────────────────────┐    ┌─────────────────────┐
+        │   Natural Language          │    │  LLM Cognitive      │
+        │   Understanding             │───▶│  Planning           │
+        │   (Intent Recognition,      │    │  (Plan Generation)  │
+        │    Entity Extraction)       │    │                     │
+        └─────────────────────────────┘    └─────────────────────┘
+                                                         │
+                    ┌────────────────────────────────────┘
+                    ▼
+        ┌─────────────────────────────┐    ┌─────────────────────┐
+        │   Action Validation &       │    │  Robot Action       │
+        │   Safety Checks             │───▶│  Execution          │
+        │   (Obstacle Detection,      │    │  (Low-Level        │
+        │    Battery Status, etc.)    │    │   Control)          │
+        └─────────────────────────────┘    └─────────────────────┘
+```
+
+## Component Details
+
+### 1. User Voice Command
+- Natural language command spoken by user
+- Captured by robot's microphone array
+- May include environmental noise
+
+### 2. Audio Processing
+- **Preprocessing**: Noise reduction, audio normalization
+- **Wake Word Detection**: Identifies when robot should start processing
+- **Voice Activity Detection**: Determines when speech is occurring
+
+### 3. Whisper ASR (Automatic Speech Recognition)
+- Converts speech to text using OpenAI Whisper
+- Handles multiple languages and accents
+- Provides confidence scores for recognition
+
+### 4. Natural Language Understanding
+- **Intent Recognition**: Determines the user's intent
+- **Entity Extraction**: Identifies relevant objects, locations, etc.
+- **Context Processing**: Uses conversation history for better understanding
+
+### 5. LLM Cognitive Planning
+- **Plan Generation**: Creates step-by-step action plan
+- **Reasoning**: Applies world knowledge to interpret commands
+- **Safety Validation**: Ensures plan is safe to execute
+
+### 6. Action Validation & Safety Checks
+- **Environment Safety**: Checks for obstacles using sensors
+- **Battery Status**: Ensures sufficient power for task
+- **Kinematic Constraints**: Validates feasibility of actions
+
+### 7. Robot Action Execution
+- **Low-Level Control**: Direct motor and actuator control
+- **Feedback Integration**: Adjusts actions based on sensor feedback
+- **Task Monitoring**: Tracks execution progress
+
+## Data Flow
+
+1. **Audio Stream**: Continuous audio data from microphones
+2. **Text Transcription**: Speech-to-text conversion result
+3. **Command Interpretation**: Parsed intent and entities
+4. **Action Plan**: Sequence of robot actions to execute
+5. **Safety Validation**: Verification that actions are safe
+6. **Control Commands**: Low-level robot control signals
+7. **Execution Feedback**: Status updates during action execution
+
+## Key Technologies
+
+- **OpenAI Whisper**: For speech recognition
+- **Large Language Models**: For cognitive planning (GPT, Claude, Llama)
+- **ROS 2**: For robot communication and control
+- **Sensor Integration**: For safety and environment awareness
+- **Audio Processing Libraries**: For noise reduction and enhancement

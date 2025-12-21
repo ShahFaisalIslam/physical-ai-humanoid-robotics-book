@@ -1,0 +1,6 @@
+.footer__title {
+  color: var(--ifm-color-primary);
+  font-size: 1.2rem;
+  font-weight: var(--ifm-font-weight-bold);
+  margin-bottom: 0.5rem;
+}

@@ -212,6 +212,8 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 ## Active Technologies
 - Python 3.11+ (for ROS 2 Humble Hawksbill compatibility), JavaScript/TypeScript for Docusaurus web interface + Docusaurus framework, ROS 2 Humble Hawksbill, NVIDIA Isaac SDK, Gazebo simulation engine, OpenAI Whisper API, open-source LLMs (e.g., Llama), rclpy (Python ROS client library) (002-physical-ai-robotics)
 - Markdown files for book content, GitHub Pages for hosting (002-physical-ai-robotics)
+- Markdown files for book content, JavaScript/TypeScript for Docusaurus web interface, Python 3.11+ for code examples + Docusaurus framework, Node.js 18+, npm/yarn, GitHub Pages for hosting (002-physical-ai-robotics)
+- Markdown files for book content, configuration files, and static assets (002-physical-ai-robotics)
 
 ## Recent Changes
 - 002-physical-ai-robotics: Added Python 3.11+ (for ROS 2 Humble Hawksbill compatibility), JavaScript/TypeScript for Docusaurus web interface + Docusaurus framework, ROS 2 Humble Hawksbill, NVIDIA Isaac SDK, Gazebo simulation engine, OpenAI Whisper API, open-source LLMs (e.g., Llama), rclpy (Python ROS client library)

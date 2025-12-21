@@ -1,322 +1,207 @@
----
-description: "Task list template for feature implementation"
----
-
-# Tasks: Physical AI & Humanoid Robotics - A Comprehensive Guide
-
-**Input**: Design documents from `/specs/002-physical-ai-robotics/`
-**Prerequisites**: plan.md (required), spec.md (required for user stories), research.md, data-model.md, contracts/
-
-**Tests**: The examples below include test tasks. Tests are OPTIONAL - only include them if explicitly requested in the feature specification.
-
-**Organization**: Tasks are grouped by user story to enable independent implementation and testing of each story.
-
-## Format: `[ID] [P?] [Story] Description`
-
-- **[P]**: Can run in parallel (different files, no dependencies)
-- **[Story]**: Which user story this task belongs to (e.g., US1, US2, US3)
-- Include exact file paths in descriptions
-
-## Path Conventions
-
-- **Single project**: `src/`, `tests/` at repository root
-- **Web app**: `backend/src/`, `frontend/src/`
-- **Mobile**: `api/src/`, `ios/src/` or `android/src/`
-- Paths shown below assume single project - adjust based on plan.md structure
-
-<!--
-  ============================================================================
-  IMPORTANT: The tasks below are SAMPLE TASKS for illustration purposes only.
-
-  The /sp.tasks command MUST replace these with actual tasks based on:
-  - User stories from spec.md (with their priorities P1, P2, P3...)
-  - Feature requirements from plan.md
-  - Entities from data-model.md
-  - Endpoints from contracts/
-
-  Tasks MUST be organized by user story so each story can be:
-  - Implemented independently
-  - Tested independently
-  - Delivered as an MVP increment
-
-  DO NOT keep these sample tasks in the generated tasks.md file.
-  ============================================================================
--->
-
-## Phase 1: Setup (Shared Infrastructure)
-
-**Purpose**: Project initialization and basic structure
-
-- [ ] T001 Create website directory structure per implementation plan
-- [ ] T002 Initialize Docusaurus project with `npx create-docusaurus@latest website classic`
-- [ ] T003 [P] Configure Node.js project with package.json dependencies
-- [ ] T004 Set up Git repository structure with appropriate .gitignore
-- [ ] T005 [P] Configure GitHub Actions workflow for GitHub Pages deployment
-- [ ] T006 Set up initial Docusaurus configuration files (docusaurus.config.js, sidebars.js)
-
----
-
-## Phase 2: Foundational (Blocking Prerequisites)
-
-**Purpose**: Core infrastructure that MUST be complete before ANY user story can be implemented
-
-**⚠️ CRITICAL**: No user story work can begin until this phase is complete
-
-Examples of foundational tasks (adjust based on your project):
-
-- [ ] T007 Create basic Docusaurus theme and styling framework
-- [ ] T008 [P] Set up navigation structure based on book modules
-- [ ] T009 [P] Configure Markdown and code highlighting for Python/ROS content
-- [ ] T010 Create content directory structure per book modules (docs/ros2-fundamentals/, docs/gazebo-simulation/, etc.)
-- [ ] T011 Configure deployment settings for GitHub Pages
-- [ ] T012 Set up media resources directory for images and diagrams
-- [ ] T013 Create initial book landing page with overview
-
-**Checkpoint**: Foundation ready - user story implementation can now begin in parallel
-
----
-
-## Phase 3: User Story 1 - Reader Learns ROS 2 Fundamentals (Priority: P1) 🎯 MVP
-
-**Goal**: Student can follow the book's examples and create and run a basic ROS 2 package with multiple nodes that communicate via topics, demonstrating understanding of the core concepts.
-
-**Independent Test**: Students can create and run a basic ROS 2 package with multiple nodes that communicate via topics, demonstrating understanding of the core concepts.
-
-### Tests for User Story 1 (OPTIONAL - only if tests requested) ⚠️
-
-> **NOTE: Write these tests FIRST, ensure they FAIL before implementation**
-
-- [ ] T014 [P] [US1] Create ROS 2 fundamentals test scenarios in tests/contract/test_ros_fundamentals.py
-- [ ] T015 [P] [US1] Create integration test for ROS 2 node communication in tests/integration/test_ros_nodes.py
-
-### Implementation for User Story 1
-
-- [ ] T016 [P] [US1] Create ROS 2 fundamentals chapter index in docs/ros2-fundamentals/index.md
-- [ ] T017 [P] [US1] Create Nodes, Topics, and Services content in docs/ros2-fundamentals/nodes-topics-services.md
-- [ ] T018 [US1] Create rclpy examples content in docs/ros2-fundamentals/rclpy-examples.md
-- [ ] T019 [US1] Create URDF for humanoids content in docs/ros2-fundamentals/urdf-humanoids.md
-- [ ] T020 [P] [US1] Create Python code examples for ROS 2 basics in website/src/code-examples/ros2-basics.py
-- [ ] T021 [P] [US1] Add ROS 2 architecture diagram in website/static/img/ros2-architecture.png
-- [ ] T022 [US1] Create exercises for ROS 2 fundamentals in docs/ros2-fundamentals/exercises.md
-- [ ] T023 [US1] Add interactive elements for ROS 2 concepts in website/src/components/ROS2Visualizer.js
-
-**Checkpoint**: At this point, User Story 1 should be fully functional and testable independently
-
----
-
-## Phase 4: User Story 2 - Reader Simulates Robots with Gazebo (Priority: P2)
-
-**Goal**: Students can follow the book's examples to create a simulation environment in Gazebo with physics properties, add a robot model, and implement sensor simulation (LiDAR, cameras, IMUs).
-
-**Independent Test**: Students can follow the book's examples to create a simulation environment in Gazebo with physics properties, add a robot model, and implement sensor simulation (LiDAR, cameras, IMUs).
-
-### Tests for User Story 2 (OPTIONAL - only if tests requested) ⚠️
-
-- [ ] T024 [P] [US2] Create Gazebo simulation test scenarios in tests/contract/test_gazebo_simulation.py
-- [ ] T025 [P] [US2] Create integration test for sensor simulation in tests/integration/test_sensor_simulation.py
-
-### Implementation for User Story 2
-
-- [ ] T026 [P] [US2] Create Gazebo simulation chapter index in docs/gazebo-simulation/index.md
-- [ ] T027 [P] [US2] Create physics simulation content in docs/gazebo-simulation/physics-simulation.md
-- [ ] T028 [US2] Create sensor modeling content in docs/gazebo-simulation/sensor-modeling.md
-- [ ] T029 [P] [US2] Create Python code examples for Gazebo integration in website/src/code-examples/gazebo-integration.py
-- [ ] T030 [P] [US2] Add Gazebo simulation diagrams in website/static/img/gazebo-simulation.png
-- [ ] T031 [US2] Create exercises for Gazebo simulation in docs/gazebo-simulation/exercises.md
-- [ ] T032 [US2] Create Unity integration content in docs/gazebo-simulation/unity-integration.md
-- [ ] T033 [US2] Add interactive elements for simulation concepts in website/src/components/SimulationVisualizer.js
-
-**Checkpoint**: At this point, User Stories 1 AND 2 should both work independently
-
----
-
-## Phase 5: User Story 3 - Reader Develops with NVIDIA Isaac Platform (Priority: P3)
-
-**Goal**: Students can follow the book's examples to implement a perception pipeline using Isaac tools that processes sensor data to identify objects or navigate environments.
-
-**Independent Test**: Students can follow the book's examples to implement a perception pipeline using Isaac tools that processes sensor data to identify objects or navigate environments.
-
-### Tests for User Story 3 (OPTIONAL - only if tests requested) ⚠️
-
-- [ ] T034 [P] [US3] Create Isaac platform test scenarios in tests/contract/test_isaac_platform.py
-- [ ] T035 [P] [US3] Create integration test for perception pipeline in tests/integration/test_perception_pipeline.py
-
-### Implementation for User Story 3
-
-- [ ] T036 [P] [US3] Create NVIDIA Isaac chapter index in docs/nvidia-isaac/index.md
-- [ ] T037 [P] [US3] Create Isaac Sim content in docs/nvidia-isaac/isaac-sim.md
-- [ ] T038 [US3] Create VSLAM navigation content in docs/nvidia-isaac/vslam-navigation.md
-- [ ] T039 [P] [US3] Create Python code examples for Isaac integration in website/src/code-examples/isaac-integration.py
-- [ ] T040 [P] [US3] Add Isaac platform diagrams in website/static/img/isaac-platform.png
-- [ ] T041 [US3] Create exercises for Isaac platform in docs/nvidia-isaac/exercises.md
-- [ ] T042 [US3] Create synthetic data generation content in docs/nvidia-isaac/synthetic-data.md
-- [ ] T043 [US3] Add interactive elements for Isaac concepts in website/src/components/IsaacVisualizer.js
-
-**Checkpoint**: All user stories should now be independently functional
-
----
-
-## Phase 6: User Story 4 - Reader Integrates LLMs for Conversational Robotics (Priority: P4)
-
-**Goal**: Students can follow the book's examples to implement a system where a robot receives voice commands and translates them into appropriate robotic actions.
-
-**Independent Test**: Students can follow the book's examples to implement a system where a robot receives voice commands and translates them into appropriate robotic actions.
-
-### Tests for User Story 4 (OPTIONAL - only if tests requested) ⚠️
-
-- [ ] T044 [P] [US4] Create LLM integration test scenarios in tests/contract/test_llm_integration.py
-- [ ] T045 [P] [US4] Create integration test for voice-to-action system in tests/integration/test_voice_to_action.py
-
-### Implementation for User Story 4
-
-- [ ] T046 [P] [US4] Create VLA systems chapter index in docs/vla-systems/index.md
-- [ ] T047 [P] [US4] Create voice commands content in docs/vla-systems/voice-commands.md
-- [ ] T048 [US4] Create cognitive planning content in docs/vla-systems/cognitive-planning.md
-- [ ] T049 [P] [US4] Create Python code examples for voice processing in website/src/code-examples/voice-processing.py
-- [ ] T050 [P] [US4] Add LLM integration diagrams in website/static/img/llm-integration.png
-- [ ] T051 [US4] Create exercises for LLM integration in docs/vla-systems/exercises.md
-- [ ] T052 [US4] Add interactive elements for VLA concepts in website/src/components/VLAVisualizer.js
-
----
-
-## Phase 7: User Story 5 - Reader Completes Capstone Project (Priority: P5)
-
-**Goal**: Students can follow the book's capstone project and demonstrate a working robot system that performs the complete pipeline from voice command to physical action.
-
-**Independent Test**: Students can follow the book's capstone project and demonstrate a working robot system that performs the complete pipeline from voice command to physical action.
-
-### Tests for User Story 5 (OPTIONAL - only if tests requested) ⚠️
-
-- [ ] T053 [P] [US5] Create capstone project test scenarios in tests/contract/test_capstone_project.py
-- [ ] T054 [P] [US5] Create end-to-end integration test in tests/integration/test_end_to_end.py
-
-### Implementation for User Story 5
-
-- [ ] T055 [P] [US5] Create capstone project chapter index in docs/capstone-project/index.md
-- [ ] T056 [P] [US5] Create autonomous humanoid content in docs/capstone-project/autonomous-humanoid.md
-- [ ] T057 [US5] Create complete project guide in docs/capstone-project/project-guide.md
-- [ ] T058 [P] [US5] Create Python code examples for capstone in website/src/code-examples/capstone-project.py
-- [ ] T059 [P] [US5] Add capstone project diagrams in website/static/img/capstone-architecture.png
-- [ ] T060 [US5] Create evaluation criteria in docs/capstone-project/evaluation.md
-- [ ] T061 [US5] Add interactive elements for capstone concepts in website/src/components/CapstoneSimulator.js
-
----
-
-[Add more user story phases as needed, following the same pattern]
-
----
-
-## Phase N: Polish & Cross-Cutting Concerns
-
-**Purpose**: Improvements that affect multiple user stories
-
-- [ ] T062 [P] Documentation updates in docs/
-- [ ] T063 Code cleanup and refactoring
-- [ ] T064 Performance optimization across all stories
-- [ ] T065 [P] Additional unit tests (if requested) in tests/unit/
-- [ ] T066 Security hardening
-- [ ] T067 Run quickstart.md validation
-- [ ] T068 Create API documentation for potential backend services in docs/api/
-- [ ] T069 Add accessibility features and alt text to all images
-- [ ] T070 Set up search functionality with Algolia or built-in Docusaurus search
-- [ ] T071 Add analytics for tracking user engagement
-
----
-
-## Dependencies & Execution Order
-
-### Phase Dependencies
-
-- **Setup (Phase 1)**: No dependencies - can start immediately
-- **Foundational (Phase 2)**: Depends on Setup completion - BLOCKS all user stories
-- **User Stories (Phase 3+)**: All depend on Foundational phase completion
-  - User stories can then proceed in parallel (if staffed)
-  - Or sequentially in priority order (P1 → P2 → P3 → P4 → P5)
-- **Polish (Final Phase)**: Depends on all desired user stories being complete
-
-### User Story Dependencies
-
-- **User Story 1 (P1)**: Can start after Foundational (Phase 2) - No dependencies on other stories
-- **User Story 2 (P2)**: Can start after Foundational (Phase 2) - May integrate with US1 but should be independently testable
-- **User Story 3 (P3)**: Can start after Foundational (Phase 2) - May integrate with US1/US2 but should be independently testable
-- **User Story 4 (P4)**: Can start after Foundational (Phase 2) - May integrate with US1/US2/US3 but should be independently testable
-- **User Story 5 (P5)**: Can start after Foundational (Phase 2) - Integrates concepts from all previous stories
-
-### Within Each User Story
-
-- Tests (if included) MUST be written and FAIL before implementation
-- Models before services
-- Services before endpoints
-- Core implementation before integration
-- Story complete before moving to next priority
-
-### Parallel Opportunities
-
-- All Setup tasks marked [P] can run in parallel
-- All Foundational tasks marked [P] can run in parallel (within Phase 2)
-- Once Foundational phase completes, all user stories can start in parallel (if team capacity allows)
-- All tests for a user story marked [P] can run in parallel
-- Models within a story marked [P] can run in parallel
-- Different user stories can be worked on in parallel by different team members
-
----
-
-## Parallel Example: User Story 1
-
-```bash
-# Launch all tests for User Story 1 together (if tests requested):
-Task: "Create ROS 2 fundamentals test scenarios in tests/contract/test_ros_fundamentals.py"
-Task: "Create integration test for ROS 2 node communication in tests/integration/test_ros_nodes.py"
-
-# Launch all content creation for User Story 1 together:
-Task: "Create ROS 2 fundamentals chapter index in docs/ros2-fundamentals/index.md"
-Task: "Create Nodes, Topics, and Services content in docs/ros2-fundamentals/nodes-topics-services.md"
-Task: "Create Python code examples for ROS 2 basics in website/src/code-examples/ros2-basics.py"
-```
-
----
+# Implementation Tasks: Physical AI & Humanoid Robotics - Docusaurus Book
+
+**Feature**: Physical AI & Humanoid Robotics - Docusaurus Book  
+**Generated**: 2025-12-20  
+**Based on**: `/specs/002-physical-ai-robotics/plan.md` and `/specs/002-physical-ai-robotics/spec.md`
 
 ## Implementation Strategy
 
-### MVP First (User Story 1 Only)
+This project will create a comprehensive book on Physical AI & Humanoid Robotics using Docusaurus and publish it to GitHub Pages, without requiring local ROS 2 installation. The approach focuses on theoretical understanding with well-documented code examples rather than requiring local runtime validation.
 
-1. Complete Phase 1: Setup
-2. Complete Phase 2: Foundational (CRITICAL - blocks all stories)
-3. Complete Phase 3: User Story 1
-4. **STOP and VALIDATE**: Test User Story 1 independently
-5. Deploy/demo if ready
+The implementation follows a phased approach:
+1. **Setup Phase**: Initialize Docusaurus project and configure GitHub Pages
+2. **Foundational Phase**: Create core components and structure
+3. **User Story Phases**: Implement content for each user story in priority order
+4. **Polish Phase**: Add cross-cutting concerns and final touches
 
-### Incremental Delivery
+## Dependencies
 
-1. Complete Setup + Foundational → Foundation ready
-2. Add User Story 1 → Test independently → Deploy/Demo (MVP!)
-3. Add User Story 2 → Test independently → Deploy/Demo
-4. Add User Story 3 → Test independently → Deploy/Demo
-5. Add User Story 4 → Test independently → Deploy/Demo
-6. Add User Story 5 → Test independently → Deploy/Demo
-7. Each story adds value without breaking previous stories
+- Node.js 18+
+- npm/yarn
+- Git
+- GitHub account for hosting
 
-### Parallel Team Strategy
+## Parallel Execution Examples
 
-With multiple developers:
-
-1. Team completes Setup + Foundational together
-2. Once Foundational is done:
-   - Developer A: User Story 1
-   - Developer B: User Story 2
-   - Developer C: User Story 3
-   - Developer D: User Story 4
-   - Developer E: User Story 5
-3. Stories complete and integrate independently
+- Tasks T006-P015 can be executed in parallel by different team members working on different modules
+- Content writing can happen in parallel with UI component development
+- Image/diagram creation can run parallel to content writing
 
 ---
 
-## Notes
+## Phase 1: Setup Tasks
 
-- [P] tasks = different files, no dependencies
-- [Story] label maps task to specific user story for traceability
-- Each user story should be independently completable and testable
-- Verify tests fail before implementing
-- Commit after each task or logical group
-- Stop at any checkpoint to validate story independently
-- Avoid: vague tasks, same file conflicts, cross-story dependencies that break independence
+Initialize the Docusaurus project and configure basic infrastructure.
+
+- [X] T001 Create project structure per plan.md in book/ directory
+- [X] T002 Initialize Docusaurus project with `create-docusaurus` command
+- [X] T003 Configure package.json with project metadata
+- [X] T004 Set up GitHub Pages deployment workflow in .github/workflows/
+- [X] T005 Configure docusaurus.config.js with site metadata and navigation
+- [X] T006 Create initial sidebars.js structure for the 4 modules
+- [X] T007 Set up README.md with project overview and setup instructions
+- [X] T008 Configure babel.config.js for JavaScript transformation
+- [X] T009 Set up .gitignore for Node.js/Docusaurus projects
+- [X] T010 Create directory structure for docs/ matching plan.md
+
+---
+
+## Phase 2: Foundational Tasks
+
+Create core components and foundational content that all user stories depend on.
+
+- [X] T011 Create custom theme components in src/theme/
+- [X] T012 Create base layout components for book chapters
+- [X] T013 Set up static assets directory structure in static/
+- [X] T014 Create reusable content components in src/components/
+- [ ] T015 Set up content metadata schema for book chapters
+- [X] T016 Create initial module overview pages for all 4 modules
+- [X] T017 Implement basic content styling and typography
+- [ ] T018 Set up content validation and build checks
+- [ ] T019 Create documentation for content contribution workflow
+- [ ] T020 Implement basic search functionality
+
+---
+
+## Phase 3: [US1] Reader Learns ROS 2 Fundamentals
+
+A reader new to robotics begins learning the fundamentals of ROS 2 from the book, including Nodes, Topics, and Services, and learns how to bridge Python Agents to ROS controllers using rclpy. The reader will understand URDF (Unified Robot Description Format) for humanoids.
+
+**Goal**: Provide foundational knowledge of ROS 2 concepts with educational content and code examples without requiring runtime.
+
+**Independent Test**: Readers can follow the book's examples and understand the theoretical concepts of ROS 2 nodes, topics, and services, demonstrating understanding of the core concepts through exercises.
+
+- [X] T021 [P] [US1] Create introduction-to-ros2.md with basic ROS 2 concepts
+- [X] T022 [P] [US1] Create nodes-topics-services.md explaining communication patterns
+- [X] T023 [P] [US1] Create rclpy-basics.md with Python ROS client library examples
+- [X] T024 [P] [US1] Create urdf-for-humanoids.md explaining robot description format
+- [X] T025 [US1] Add code examples for basic publisher/subscriber pattern in Python
+- [X] T026 [US1] Add code examples for service/client implementation in Python
+- [X] T027 [US1] Create diagrams showing ROS 2 architecture and communication flow
+- [X] T028 [US1] Add exercises to reinforce ROS 2 fundamental concepts
+- [X] T029 [US1] Create assessment questions for ROS 2 fundamentals
+- [X] T030 [US1] Write detailed explanations of ROS 2 lifecycle and execution model
+- [X] T031 [US1] Add content about ROS 2 launch files and parameter management
+- [X] T032 [US1] Include best practices for ROS 2 development without runtime
+
+---
+
+## Phase 4: [US2] Reader Simulates Robots with Gazebo
+
+A reader learns to simulate robots in Gazebo from the book, understanding physics simulation, sensor simulation, and how to create environments for robot testing. They also learn Unity for high-fidelity rendering and human-robot interaction.
+
+**Goal**: Teach Gazebo simulation concepts with theoretical understanding and code examples without requiring runtime.
+
+**Independent Test**: Readers can follow the book's examples to understand simulation environments and sensor models, demonstrating understanding through exercises.
+
+- [X] T033 [P] [US2] Create gazebo-simulation.md explaining core concepts
+- [X] T034 [P] [US2] Create physics-modeling.md with theoretical physics simulation
+- [X] T035 [P] [US2] Create sensor-simulation.md covering LiDAR, cameras, IMUs
+- [X] T036 [P] [US2] Create unity-integration.md explaining Unity for visualization
+- [X] T037 [US2] Add code examples for Gazebo plugin development in Python
+- [X] T038 [US2] Create diagrams showing Gazebo simulation architecture
+- [X] T039 [US2] Add content about SDF (Simulation Description Format)
+- [X] T040 [US2] Include examples of sensor data processing without runtime
+- [X] T041 [US2] Add exercises for understanding physics simulation parameters
+- [X] T042 [US2] Create assessment questions for simulation concepts
+- [X] T043 [US2] Include best practices for simulation without runtime validation
+
+---
+
+## Phase 5: [US3] Reader Develops with NVIDIA Isaac Platform
+
+A reader learns to use the NVIDIA Isaac platform for AI-powered perception and manipulation from the book, including Isaac Sim for photorealistic simulation and synthetic data generation, and Isaac ROS for hardware-accelerated navigation.
+
+**Goal**: Teach Isaac platform concepts with theoretical understanding and code examples without requiring runtime.
+
+**Independent Test**: Readers can follow the book's examples to understand perception pipelines, demonstrating understanding through exercises.
+
+- [X] T044 [P] [US3] Create isaac-sdk-overview.md explaining core concepts
+- [X] T045 [P] [US3] Create perception-pipelines.md with AI-powered perception
+- [X] T046 [P] [US3] Create vslam-navigation.md explaining visual SLAM concepts
+- [X] T047 [P] [US3] Create nav2-path-planning.md for navigation in robotics
+- [X] T048 [US3] Add code examples for Isaac ROS components in Python
+- [X] T049 [US3] Create diagrams showing Isaac platform architecture
+- [X] T050 [US3] Add content about synthetic data generation concepts
+- [X] T051 [US3] Include examples of perception algorithms without runtime
+- [X] T052 [US3] Add exercises for understanding navigation algorithms
+- [X] T053 [US3] Create assessment questions for Isaac platform concepts
+- [X] T054 [US3] Include best practices for Isaac development without runtime
+
+---
+
+## Phase 6: [US4] Reader Integrates LLMs for Conversational Robotics
+
+A reader learns to integrate GPT models and OpenAI Whisper for voice commands from the book, translating natural language instructions into sequences of ROS 2 actions for the robot to execute.
+
+**Goal**: Teach LLM integration for robotics with theoretical understanding and code examples without requiring runtime.
+
+**Independent Test**: Readers can follow the book's examples to understand voice-to-action systems, demonstrating understanding through exercises.
+
+- [X] T055 [P] [US4] Create whisper-integration.md explaining speech recognition
+- [X] T056 [P] [US4] Create llm-cognitive-planning.md with LLM integration
+- [X] T057 [P] [US4] Create voice-to-action.md explaining voice command processing
+- [X] T058 [US4] Add code examples for OpenAI Whisper integration in Python
+- [X] T059 [US4] Add code examples for LLM cognitive planning in Python
+- [X] T060 [US4] Create diagrams showing voice-to-action architecture
+- [X] T061 [US4] Include examples of natural language processing without runtime
+- [X] T062 [US4] Add exercises for understanding cognitive planning
+- [X] T063 [US4] Create assessment questions for conversational robotics
+- [X] T064 [US4] Include best practices for LLM integration in robotics
+
+---
+
+## Phase 7: [US5] Reader Completes Capstone Project
+
+A reader integrates all learned concepts from the book in a capstone project where they create an autonomous humanoid robot that receives voice commands, plans paths, navigates obstacles, identifies objects using computer vision, and manipulates them.
+
+**Goal**: Synthesize all concepts into a comprehensive capstone project with theoretical understanding.
+
+**Independent Test**: Readers can follow the book's capstone project to understand the complete pipeline from voice command to action.
+
+- [X] T065 [US5] Create autonomous-humanoid.md capstone project overview
+- [X] T066 [US5] Design capstone architecture integrating all previous modules
+- [X] T067 [US5] Create step-by-step implementation guide for the capstone
+- [X] T068 [US5] Add code examples for integrating all components without runtime
+- [X] T069 [US5] Create diagrams showing complete system architecture
+- [X] T070 [US5] Include troubleshooting guide for common capstone challenges
+- [X] T071 [US5] Add exercises for understanding system integration
+- [X] T072 [US5] Create assessment questions for capstone concepts
+- [X] T073 [US5] Include best practices for system integration without runtime
+
+---
+
+## Phase 8: Polish & Cross-Cutting Concerns
+
+Final touches, optimization, and cross-cutting functionality.
+
+- [X] T074 Add interactive code playground components for code examples
+- [X] T075 Implement accessibility features for all content
+- [X] T076 Add search optimization and content indexing
+- [X] T077 Create comprehensive glossary of robotics terms
+- [X] T078 Add references and further reading sections to all chapters
+- [X] T079 Implement content versioning strategy for future updates
+- [X] T080 Create feedback mechanism for readers to report issues
+- [X] T081 Add performance optimization for faster page loading
+- [X] T082 Implement responsive design for mobile viewing
+- [X] T083 Add content analytics to track reader engagement
+- [X] T084 Final review and editing of all content for consistency
+- [X] T085 Deploy to GitHub Pages and verify functionality
+
+---
+
+## MVP Scope
+
+The MVP will include Phase 1 (Setup) and Phase 3 (US1 - ROS 2 Fundamentals) to deliver the most critical foundational content first. This allows for early validation of the Docusaurus approach and provides immediate value to readers learning ROS 2 basics.
+
+**MVP Tasks**: T001-T010 (Setup) + T021-T032 (US1) = 22 tasks
+
+## Task Completion Criteria
+
+Each task must meet the following criteria:
+- All code examples are properly formatted and well-commented
+- All diagrams and images are accessible with proper alt text
+- All content follows the educational objectives defined in the spec
+- All content is written to be understood without requiring ROS 2 runtime
+- All content is properly linked and cross-referenced
+- All content passes build and validation checks

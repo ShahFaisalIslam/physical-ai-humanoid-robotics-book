@@ -1,0 +1,262 @@
+# Capstone System Architecture Diagrams
+
+## 1. High-Level System Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                          Autonomous Humanoid Robot                              │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│ ┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐  ┌─────────────┐ │
+│ │   Voice Input   │  │  NLP & Planning  │  │  Navigation &   │  │  Hardware   │ │
+│ │   Processing    │  │     Module       │  │  Path Planning  │  │  Interface  │ │
+│ │                 │  │                  │  │                 │  │             │ │
+│ │ - Audio capture │  │ - LLM reasoning  │  │ - Global path   │  │ - Actuators │ │
+│ │ - Preprocessing │  │ - Command interp │  │ - Local planning│  │ - Sensors   │ │
+│ │ - ASR (Whisper) │  │ - Plan gen       │  │ - Obstacle avoid│  │ - Cameras   │ │
+│ └─────────────────┘  └──────────────────┘  └─────────────────┘  └─────────────┘ │
+│         │                        │                       │              │       │
+│         ▼                        ▼                       ▼              ▼       │
+│ ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│ │                        System Orchestrator                                  │ │
+│ │  - Coordinates components                                                 │ │
+│ │  - Manages task execution                                                 │ │
+│ │  - Monitors system status                                                 │ │
+│ │  - Handles error recovery                                                 │ │
+│ └─────────────────────────────────────────────────────────────────────────────┘ │
+│         ▲                        ▲                       ▲              ▲       │
+│         │                        │                       │              │       │
+│ ┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐  ┌─────────────┐ │
+│ │  Perception     │  │  Task Manager    │  │  Manipulation   │  │  Safety &   │ │
+│ │   System        │  │     & Safety     │  │   Controller    │  │  Monitoring │ │
+│ │                 │  │                  │  │                 │  │             │ │
+│ │ - Object detect │  │ - Action sequenc │  │ - Arm control   │  │ - Emergency │ │
+│ │ - Pose est      │  │ - Validation     │  │ - Gripper ctrl  │  │   stop      │ │
+│ │ - Scene unders  │  │ - Fallback strat │  │ - Kinematics    │  │ - Health    │ │
+│ └─────────────────┘  └──────────────────┘  └─────────────────┘  │   monitor   │ │
+│                                                              └─────────────┘ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+## 2. Voice-to-Action Pipeline
+
+```
+User Voice Command
+         ↓ (spoken)
+┌─────────────────┐
+│ Microphone Array│
+└─────────────────┘
+         ↓ (raw audio)
+┌─────────────────┐
+│ Audio Preproc.  │
+│ - Noise reduc.  │
+│ - Enhancement   │
+└─────────────────┘
+         ↓ (cleaned audio)
+┌─────────────────┐
+│ Wake Word Det.  │
+│ - "Hey Robot"   │
+└─────────────────┘
+         ↓ (if activated)
+┌─────────────────┐
+│ Whisper ASR     │
+│ Speech-to-Text  │
+└─────────────────┘
+         ↓ (transcribed text)
+┌─────────────────┐
+│ NLP Module      │
+│ - Intent Recog. │
+│ - Entity Extr.  │
+└─────────────────┘
+         ↓ (structured command)
+┌─────────────────┐
+│ LLM Cognitive   │
+│ Planner         │
+└─────────────────┘
+         ↓ (action plan)
+┌─────────────────┐
+│ Task Manager &  │
+│ Safety Validator│
+└─────────────────┘
+         ↓ (validated actions)
+┌─────────────────┐
+│ Action Executor │
+│ - Navigation    │
+│ - Manipulation  │
+└─────────────────┘
+         ↓ (low-level commands)
+Robot Hardware
+```
+
+## 3. Data Flow Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                          Data Flow Architecture                                 │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│  Sensors (LIDAR, Camera, IMU, etc.)                                           │
+│         ↓ (sensor_msgs)                                                        │
+│ ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│ │                        Perception System                                    │ │
+│ │ - Process sensor data                                                      │ │
+│ │ - Detect/track objects                                                     │ │
+│ │ - Estimate poses                                                           │ │
+│ │ - Publish: /detected_objects (JSON)                                        │ │
+│ └─────────────────────────────────────────────────────────────────────────────┘ │
+│         ↓ (detected objects)                                                   │
+│ ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│ │                        World Model                                          │ │
+│ │ - Maintain object locations                                                │ │
+│ │ - Track dynamic elements                                                   │ │
+│ │ - Update environment map                                                   │ │
+│ └─────────────────────────────────────────────────────────────────────────────┘ │
+│         ↑ (updated map)                                                        │
+│ ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│ │                        Navigation System                                    │ │
+│ │ - Global path planning                                                     │ │
+│ │ - Local obstacle avoidance                                                 │ │
+│ │ - Publish: /cmd_vel, /path                                                 │ │
+│ └─────────────────────────────────────────────────────────────────────────────┘ │
+│         ↓ (motion commands)                                                    │
+│ ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│ │                        Hardware Interface                                   │ │
+│ │ - Motor controllers                                                        │ │
+│ │ - Joint position commands                                                  │ │
+│ │ - Sensor feedback processing                                               │ │
+│ └─────────────────────────────────────────────────────────────────────────────┘ │
+│         ↑ (feedback)                                                           │
+│ ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│ │                        State Estimation                                     │ │
+│ │ - Robot position tracking                                                  │ │
+│ │ - Object state updates                                                     │ │
+│ │ - Publish: /robot_state (JSON)                                             │ │
+│ └─────────────────────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+## 4. Component Interaction Matrix
+
+| Component A | Component B | Interaction Type | Data Exchanged | Frequency |
+|-------------|-------------|------------------|----------------|-----------|
+| Voice Processor | NLP Planner | Request/Response | Transcribed text → Action plan | On voice command |
+| NLP Planner | Navigation | Action command | Navigation goal | When needed |
+| NLP Planner | Manipulation | Action command | Manipulation goal | When needed |
+| Perception | Navigation | Information | Obstacle locations | Continuous |
+| Navigation | Perception | Query | Object positions | When planning |
+| Manipulation | Perception | Coordination | Object poses | Before grasp |
+| All | Orchestrator | Status updates | Component status | Continuous |
+| Orchestrator | All | Control commands | Start/stop/parameters | As needed |
+
+## 5. Safety Architecture Layers
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                           Safety Architecture                                   │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│  ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│  │  Layer 4: AI Safety Layer                                                   │ │
+│  │  - Plan validation against rules                                           │ │
+│  │  - Confidence thresholding                                                 │ │
+│  │  - Human-in-the-loop for critical decisions                                │ │
+│  │  - Ethical decision making                                                 │ │
+│  └─────────────────────────────────────────────────────────────────────────────┘ │
+│              ↓ (validation)                                                     │
+│  ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│  │  Layer 3: Software Safety Layer                                             │ │
+│  │  - Action validation before execution                                      │ │
+│  │  - Kinematic constraint checking                                           │ │
+│  │  - Obstacle detection and avoidance                                        │ │
+│  │  - Battery level monitoring                                                │ │
+│  └─────────────────────────────────────────────────────────────────────────────┘ │
+│              ↓ (validation)                                                     │
+│  ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│  │  Layer 2: Control Safety Layer                                              │ │
+│  │  - Velocity/acceleration limits                                            │ │
+│  │  - Force/torque limiting                                                   │ │
+│  │  - Joint position constraints                                              │ │
+│  │  - Emergency deceleration                                                  │ │
+│  └─────────────────────────────────────────────────────────────────────────────┘ │
+│              ↓ (validation)                                                     │
+│  ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│  │  Layer 1: Hardware Safety Layer                                             │ │
+│  │  - Emergency stop button                                                   │ │
+│  │  - Collision detection sensors                                             │ │
+│  │  - Physical limits enforcement                                             │ │
+│  │  - Safe failure modes                                                      │ │
+│  └─────────────────────────────────────────────────────────────────────────────┘ │
+│              ↓ (safe state)                                                     │
+│                    Physical Robot Platform                                      │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+## 6. Communication Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                        Communication Architecture                               │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│  ROS 2 Communication Framework                                                 │
+│  ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│  │  Topic-based Communication (Pub/Sub)                                        │ │
+│  │  ┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐           │ │
+│  │  │ Sensor Data     │  │ Control Commands │  │ Status Updates  │           │ │
+│  │  │ - /scan         │  │ - /cmd_vel       │  │ - /robot_state  │           │ │
+│  │  │ - /camera/image │  │ - /joint_commands│  │ - /system_status│           │ │
+│  │  │ - /imu          │  │ - /goal_pose     │  │ - /component_.. │           │ │
+│  │  └─────────────────┘  └──────────────────┘  └─────────────────┘           │ │
+│  └─────────────────────────────────────────────────────────────────────────────┘ │
+│  ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│  │  Service-based Communication (Request/Response)                             │ │
+│  │  ┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐           │ │
+│  │  │ Map Services    │  │ Planning Serv.   │  │ Perception Serv.│           │ │
+│  │  │ - /get_map      │  │ - /plan_path     │  │ - /detect_obj   │           │ │
+│  │  │ - /save_map     │  │ - /get_path      │  │ - /classify_obj │           │ │
+│  │  └─────────────────┘  └──────────────────┘  └─────────────────┘           │ │
+│  └─────────────────────────────────────────────────────────────────────────────┘ │
+│  ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│  │  Action-based Communication (Long-running tasks with feedback)              │ │
+│  │  ┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐           │ │
+│  │  │ Navigation      │  │ Manipulation     │  │ Complex Tasks   │           │ │
+│  │  │ - /navigate_to  │  │ - /pick_object   │  │ - /execute_plan │           │ │
+│  │  │ - /follow_path  │  │ - /place_object  │  │ - /perform_task │           │ │
+│  │  └─────────────────┘  └──────────────────┘  └─────────────────┘           │ │
+│  └─────────────────────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+## 7. Deployment Architecture
+
+```
+┌─────────────────────────────────────────────────────────────────────────────────┐
+│                          Deployment Architecture                                │
+├─────────────────────────────────────────────────────────────────────────────────┤
+│  ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│  │  Cloud Layer (Optional)                                                     │ │
+│  │  - LLM processing (GPT, etc.)                                              │ │
+│  │  - Map storage and updates                                                 │ │
+│  │  - Remote monitoring and control                                           │ │
+│  │  - Data analytics and learning                                             │ │
+│  └─────────────────────────────────────────────────────────────────────────────┘ │
+│              ↑ (secure connection)                                              │
+│  ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│  │  Edge Computing Layer (On Robot)                                            │ │
+│  │  ┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐           │ │
+│  │  │ AI Processing   │  │ Control Systems  │  │ Communication   │           │ │
+│  │  │ - Perception    │  │ - Navigation     │  │ - ROS 2 nodes   │           │ │
+│  │  │ - Planning      │  │ - Manipulation   │  │ - Network mgmt  │           │ │
+│  │  │ - Reasoning     │  │ - Coordination   │  │ - Security      │           │ │
+│  │  └─────────────────┘  └──────────────────┘  └─────────────────┘           │ │
+│  └─────────────────────────────────────────────────────────────────────────────┘ │
+│              ↓ (direct connection)                                              │
+│  ┌─────────────────────────────────────────────────────────────────────────────┐ │
+│  │  Hardware Interface Layer                                                   │ │
+│  │  ┌─────────────────┐  ┌──────────────────┐  ┌─────────────────┐           │ │
+│  │  │ Motor Drivers   │  │ Sensor Processors│  │ Communication   │           │ │
+│  │  │ - Joint motors  │  │ - LIDAR         │  │ - WiFi/Ethernet │           │ │
+│  │  │ - Wheels        │  │ - Camera        │  │ - Bluetooth     │           │ │
+│  │  │ - Gripper       │  │ - IMU           │  │ - Custom radios │           │ │
+│  │  └─────────────────┘  └──────────────────┘  └─────────────────┘           │ │
+│  └─────────────────────────────────────────────────────────────────────────────┘ │
+└─────────────────────────────────────────────────────────────────────────────────┘
+```
+
+These diagrams provide a comprehensive view of the capstone system architecture, showing how all components integrate to form a complete autonomous humanoid robot system.

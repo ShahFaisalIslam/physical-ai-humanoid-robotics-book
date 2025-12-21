@@ -1,0 +1,276 @@
+# API Contracts: Physical AI & Humanoid Robotics Book
+
+## Overview
+This document defines the API contracts for the Physical AI & Humanoid Robotics book application. These contracts specify the interfaces for book functionality, user interactions, and content management.
+
+## 1. Book Content API
+
+### 1.1 Get Book Chapters
+- **Endpoint**: `GET /api/book/chapters`
+- **Description**: Retrieve a list of all book chapters organized by modules
+- **Request Parameters**: None
+- **Request Headers**: 
+  - `Accept: application/json`
+- **Response**:
+  ```json
+  {
+    "modules": [
+      {
+        "id": "module-1-ros-fundamentals",
+        "title": "The Robotic Nervous System (ROS 2)",
+        "description": "Focus: Middleware for robot control",
+        "chapters": [
+          {
+            "id": "introduction-to-ros2",
+            "title": "Introduction to ROS 2",
+            "description": "Understanding the basics of ROS 2",
+            "estimated_duration": "2 weeks",
+            "prerequisites": ["basic programming", "understanding of robotics concepts"],
+            "learning_objectives": [
+              "Understand ROS 2 architecture",
+              "Learn about nodes, topics, and services"
+            ]
+          }
+        ]
+      }
+    ]
+  }
+  ```
+- **Status Codes**:
+  - 200: Success
+  - 500: Internal server error
+
+### 1.2 Get Chapter Content
+- **Endpoint**: `GET /api/book/chapters/{chapterId}`
+- **Description**: Retrieve detailed content for a specific chapter
+- **Request Parameters**:
+  - `chapterId` (path): Unique identifier for the chapter
+- **Request Headers**:
+  - `Accept: application/json`
+- **Response**:
+  ```json
+  {
+    "id": "introduction-to-ros2",
+    "title": "Introduction to ROS 2",
+    "content": "# Introduction to ROS 2\n\nROS 2 (Robot Operating System 2) is ...",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "What is ROS 2?",
+        "content": "ROS 2 is the next generation of the Robot Operating System...",
+        "type": "text"
+      }
+    ],
+    "code_examples": [
+      {
+        "id": "example-1",
+        "title": "Creating a Simple Publisher",
+        "language": "python",
+        "code": "import rclpy\nfrom rclpy.node import Node\n\nclass MinimalPublisher(Node):\n    def __init__(self):\n        super().__init__('minimal_publisher')",
+        "explanation": "This example shows how to create a basic publisher node..."
+      }
+    ],
+    "exercises": [
+      {
+        "id": "exercise-1",
+        "title": "Create Your First ROS 2 Node",
+        "description": "Follow the steps to create and run your first ROS 2 node",
+        "difficulty": "beginner"
+      }
+    ]
+  }
+  ```
+- **Status Codes**:
+  - 200: Success
+  - 404: Chapter not found
+  - 500: Internal server error
+
+### 1.3 Search Book Content
+- **Endpoint**: `GET /api/book/search`
+- **Description**: Search across all book content
+- **Request Parameters**:
+  - `q` (query): Search query string
+  - `limit` (optional): Maximum number of results (default: 10)
+- **Request Headers**:
+  - `Accept: application/json`
+- **Response**:
+  ```json
+  {
+    "query": "publisher",
+    "results": [
+      {
+        "id": "introduction-to-ros2",
+        "title": "Introduction to ROS 2",
+        "type": "chapter",
+        "url": "/module-1-ros-fundamentals/introduction-to-ros2",
+        "excerpt": "In ROS 2, a publisher node sends messages to a topic..."
+      }
+    ],
+    "total": 1
+  }
+  ```
+- **Status Codes**:
+  - 200: Success
+  - 500: Internal server error
+
+## 2. User Progress API
+
+### 2.1 Get User Progress
+- **Endpoint**: `GET /api/user/progress`
+- **Description**: Retrieve the user's reading progress and completed chapters
+- **Request Headers**:
+  - `Accept: application/json`
+  - `Authorization: Bearer {token}` (if authentication is implemented)
+- **Response**:
+  ```json
+  {
+    "userId": "user-123",
+    "completedChapters": [
+      {
+        "chapterId": "introduction-to-ros2",
+        "completedAt": "2025-01-15T10:30:00Z",
+        "completionPercentage": 100
+      }
+    ],
+    "currentChapter": {
+      "chapterId": "nodes-topics-services",
+      "startedAt": "2025-01-16T09:15:00Z",
+      "completionPercentage": 65
+    },
+    "totalCompletion": 25
+  }
+  ```
+- **Status Codes**:
+  - 200: Success
+  - 401: Unauthorized (if authentication is required)
+  - 500: Internal server error
+
+### 2.2 Update Chapter Progress
+- **Endpoint**: `POST /api/user/progress/chapters/{chapterId}`
+- **Description**: Update the user's progress for a specific chapter
+- **Request Parameters**:
+  - `chapterId` (path): Unique identifier for the chapter
+- **Request Headers**:
+  - `Content-Type: application/json`
+  - `Authorization: Bearer {token}` (if authentication is implemented)
+- **Request Body**:
+  ```json
+  {
+    "completionPercentage": 75,
+    "notes": "Struggled with the publisher-subscriber model initially"
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "chapterId": "nodes-topics-services",
+    "completionPercentage": 75,
+    "updatedAt": "2025-01-16T11:45:00Z",
+    "message": "Progress updated successfully"
+  }
+  ```
+- **Status Codes**:
+  - 200: Success
+  - 400: Invalid request body
+  - 401: Unauthorized (if authentication is required)
+  - 404: Chapter not found
+  - 500: Internal server error
+
+## 3. Interactive Elements API
+
+### 3.1 Get Interactive Demo Configuration
+- **Endpoint**: `GET /api/interactives/{demoId}/config`
+- **Description**: Retrieve configuration for an interactive demo
+- **Request Parameters**:
+  - `demoId` (path): Unique identifier for the interactive demo
+- **Request Headers**:
+  - `Accept: application/json`
+- **Response**:
+  ```json
+  {
+    "id": "ros2-architecture-demo",
+    "title": "ROS 2 Architecture Visualization",
+    "description": "Interactive visualization of ROS 2 nodes and topics",
+    "component": "Ros2ArchitectureDiagram",
+    "props": {
+      "initialState": {
+        "nodes": ["talker", "listener"],
+        "topics": ["chatter"]
+      }
+    }
+  }
+  ```
+- **Status Codes**:
+  - 200: Success
+  - 404: Demo not found
+  - 500: Internal server error
+
+## 4. Content Management API (Admin)
+
+### 4.1 Create New Chapter
+- **Endpoint**: `POST /api/admin/chapters`
+- **Description**: Create a new chapter in the book
+- **Request Headers**:
+  - `Content-Type: application/json`
+  - `Authorization: Bearer {admin-token}`
+- **Request Body**:
+  ```json
+  {
+    "moduleId": "module-1-ros-fundamentals",
+    "title": "New Chapter Title",
+    "content": "# New Chapter\n\nContent goes here...",
+    "position": 3,
+    "prerequisites": ["basic programming"],
+    "learning_objectives": ["Learn something new"]
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "id": "new-chapter-id",
+    "title": "New Chapter Title",
+    "moduleId": "module-1-ros-fundamentals",
+    "createdAt": "2025-01-16T12:00:00Z",
+    "message": "Chapter created successfully"
+  }
+  ```
+- **Status Codes**:
+  - 201: Created
+  - 400: Invalid request body
+  - 401: Unauthorized
+  - 403: Forbidden (insufficient permissions)
+  - 500: Internal server error
+
+### 4.2 Update Chapter Content
+- **Endpoint**: `PUT /api/admin/chapters/{chapterId}`
+- **Description**: Update an existing chapter
+- **Request Parameters**:
+  - `chapterId` (path): Unique identifier for the chapter
+- **Request Headers**:
+  - `Content-Type: application/json`
+  - `Authorization: Bearer {admin-token}`
+- **Request Body**:
+  ```json
+  {
+    "title": "Updated Chapter Title",
+    "content": "# Updated Content\n\nUpdated content goes here...",
+    "prerequisites": ["basic programming", "previous chapter"],
+    "learning_objectives": ["Learn something updated"]
+  }
+  ```
+- **Response**:
+  ```json
+  {
+    "id": "chapter-123",
+    "title": "Updated Chapter Title",
+    "updatedAt": "2025-01-16T12:30:00Z",
+    "message": "Chapter updated successfully"
+  }
+  ```
+- **Status Codes**:
+  - 200: Success
+  - 400: Invalid request body
+  - 401: Unauthorized
+  - 403: Forbidden (insufficient permissions)
+  - 404: Chapter not found
+  - 500: Internal server error

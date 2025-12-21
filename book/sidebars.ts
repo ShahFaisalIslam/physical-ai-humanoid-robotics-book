@@ -17,8 +17,8 @@ const sidebars: SidebarsConfig = {
   tutorialSidebar: [
     {
       type: 'category',
-      label: 'Introduction',
-      items: ['intro', 'contributing'], // We'll create an intro page later
+      label: 'Preface',
+      items: ['preface'],
     },
     {
       type: 'category',
@@ -86,6 +86,7 @@ const sidebars: SidebarsConfig = {
         'robotics-glossary',
         'references-further-reading',
         'content-versioning',
+        'contributing',
         'reader-feedback',
         'performance-optimization',
         'responsive-design',

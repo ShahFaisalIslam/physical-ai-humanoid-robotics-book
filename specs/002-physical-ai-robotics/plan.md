@@ -101,6 +101,41 @@ book/
 
 **Structure Decision**: The book will be organized as a Docusaurus-based website with modular content corresponding to the four main modules. Each module will have multiple chapters covering specific topics, with code examples and diagrams integrated throughout.
 
+## Appendix Structure
+
+### Hardware and Software Requirements Appendix
+
+To provide readers with a comprehensive reference for all technical requirements needed to implement the concepts covered in this book, a dedicated appendix will be created containing:
+
+**A. Hardware Requirements**
+- Detailed specifications for workstation requirements (GPU, CPU, RAM, OS)
+- Edge computing platform specifications (NVIDIA Jetson variants)
+- Sensor hardware specifications (RealSense cameras, IMUs, microphones)
+- Robot platform recommendations (Unitree Go2 Edu, alternatives)
+- Cloud computing specifications for cloud-based implementations
+
+**B. Software Requirements**
+- Operating system requirements (Ubuntu 22.04 LTS)
+- ROS 2 distribution (Humble Hawksbill)
+- NVIDIA Isaac SDK and Isaac Sim
+- Gazebo simulation environment
+- Development tools and IDEs
+- Version control (Git) and package management (npm/yarn)
+
+**C. Performance Benchmarks**
+- Minimum and recommended performance standards
+- Real-time processing requirements (30Hz minimum)
+- Path planning time constraints (500ms)
+- Voice-to-action translation limits (2 seconds)
+- Memory usage guidelines (80% of available RAM)
+
+**D. Installation Guides**
+- Step-by-step setup instructions for each component
+- Troubleshooting guides for common installation issues
+- Verification procedures to confirm proper installation
+
+This appendix will serve as a centralized reference for readers to understand and prepare their development environment before starting the course material.
+
 ## Complexity Tracking
 
 > **Fill ONLY if Constitution Check has violations that must be justified**

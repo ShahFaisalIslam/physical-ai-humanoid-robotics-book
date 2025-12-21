@@ -175,18 +175,25 @@ A reader integrates all learned concepts from the book in a capstone project whe
 
 Final touches, optimization, and cross-cutting functionality.
 
-- [X] T074 Add interactive code playground components for code examples
-- [X] T075 Implement accessibility features for all content
-- [X] T076 Add search optimization and content indexing
-- [X] T077 Create comprehensive glossary of robotics terms
-- [X] T078 Add references and further reading sections to all chapters
-- [X] T079 Implement content versioning strategy for future updates
-- [X] T080 Create feedback mechanism for readers to report issues
-- [X] T081 Add performance optimization for faster page loading
-- [X] T082 Implement responsive design for mobile viewing
-- [X] T083 Add content analytics to track reader engagement
-- [X] T084 Final review and editing of all content for consistency
-- [X] T085 Deploy to GitHub Pages and verify functionality
+- [ ] T074 Add interactive code playground components for code examples
+- [ ] T075 Implement accessibility features for all content
+- [ ] T076 Add search optimization and content indexing
+- [ ] T077 Create comprehensive glossary of robotics terms
+- [ ] T078 Add references and further reading sections to all chapters
+- [ ] T079 Implement content versioning strategy for future updates
+- [ ] T080 Create feedback mechanism for readers to report issues
+- [ ] T081 Add performance optimization for faster page loading
+- [ ] T082 Implement responsive design for mobile viewing
+- [ ] T083 Add content analytics to track reader engagement
+- [ ] T084 Final review and editing of all content for consistency
+- [ ] T085 Deploy to GitHub Pages and verify functionality
+- [ ] T086 Create hardware and software requirements appendix overview
+- [ ] T087 Document detailed hardware requirements (workstations, edge platforms, sensors, robots)
+- [ ] T088 Document detailed software requirements (OS, ROS 2, Isaac SDK, Gazebo, etc.)
+- [ ] T089 Document performance benchmarks and system specifications
+- [ ] T090 Create step-by-step installation guides for all required components
+- [ ] T091 Add troubleshooting guides for common setup issues
+- [ ] T092 Verify appendix content against constitution technical constraints
 
 ---
 

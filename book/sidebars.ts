@@ -80,6 +80,12 @@ const sidebars: SidebarsConfig = {
       type: 'category',
       label: 'Appendices',
       items: [
+        'hardware-software-requirements',
+        'hardware-requirements',
+        'software-requirements',
+        'performance-benchmarks',
+        'installation-guides',
+        'troubleshooting-guides',
         'interactive-playground',
         'accessibility-features',
         'search-optimization',

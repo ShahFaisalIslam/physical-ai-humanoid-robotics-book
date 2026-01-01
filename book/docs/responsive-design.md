@@ -97,7 +97,7 @@ This section covers responsive design principles and implementation techniques t
 ```
 
 #### Mobile-Optimized Navigation
-```jsx
+```jsx{% raw %}
 // Mobile-friendly navigation component
 const MobileNavigation = ({ sidebarItems, currentPage }) => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -144,7 +144,7 @@ const MobileNavigation = ({ sidebarItems, currentPage }) => {
     </nav>
   );
 };
-```
+{% endraw %}```
 
 ## Touch-Optimized Interactions
 
@@ -184,7 +184,7 @@ button, .button, a, input, select, textarea {
 ```
 
 #### Gesture Support
-```jsx
+```jsx{% raw %}
 // Touch gesture support for interactive robotics content
 const TouchableRobotDiagram = ({ robotModel, onPartClick }) => {
   const [touchStart, setTouchStart] = useState(null);
@@ -251,7 +251,7 @@ const TouchableRobotDiagram = ({ robotModel, onPartClick }) => {
     </div>
   );
 };
-```
+{% endraw %}```
 
 ## Mobile-Optimized Content Presentation
 
@@ -319,7 +319,7 @@ const TouchableRobotDiagram = ({ robotModel, onPartClick }) => {
 ```
 
 #### Interactive Code Playground for Mobile
-```jsx
+```jsx{% raw %}
 // Mobile-optimized code playground
 const MobileCodePlayground = ({ initialCode, language }) => {
   const [code, setCode] = useState(initialCode);
@@ -380,12 +380,12 @@ const MobileCodePlayground = ({ initialCode, language }) => {
     </div>
   );
 };
-```
+{% endraw %}```
 
 ### Diagrams and Visual Content
 
 #### Scalable Vector Graphics (SVG) for Mobile
-```jsx
+```jsx{% raw %}
 // Responsive SVG diagrams
 const ResponsiveRobotDiagram = ({ diagramData }) => {
   const [scale, setScale] = useState(1);
@@ -445,10 +445,10 @@ const ResponsiveRobotDiagram = ({ diagramData }) => {
         <svg
           className="robot-diagram"
           viewBox={`0 0 ${diagramData.width} ${diagramData.height}`}
-          style={{
+          style={% raw %}{{
             transform: `scale(${scale}) translate(${position.x}px, ${position.y}px)`,
             transformOrigin: '0 0'
-          }}
+          }}{% endraw %}
         >
           {/* Diagram elements */}
           {diagramData.elements.map((element, index) => (
@@ -468,14 +468,14 @@ const ResponsiveRobotDiagram = ({ diagramData }) => {
     </div>
   );
 };
-```
+{% endraw %}```
 
 ## Mobile Performance Optimization
 
 ### Resource Management
 
 #### Conditional Loading for Mobile
-```jsx
+```jsx{% raw %}
 // Mobile-optimized content loading
 const MobileOptimizedContent = ({ content }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -529,10 +529,10 @@ const MobileOptimizedContent = ({ content }) => {
     </div>
   );
 };
-```
+{% endraw %}```
 
 #### Image Optimization for Mobile
-```javascript
+```javascript{% raw %}
 // Mobile image optimization
 const MobileImage = ({ src, alt, mobileSrc, desktopSrc }) => {
   const [isMobile, setIsMobile] = useState(false);
@@ -567,12 +567,12 @@ const MobileImage = ({ src, alt, mobileSrc, desktopSrc }) => {
     </div>
   );
 };
-```
+{% endraw %}```
 
 ## Mobile Navigation and Information Architecture
 
 ### Hamburger Menu with Search
-```jsx
+```jsx{% raw %}
 // Mobile navigation with search functionality
 const MobileNavigationWithSearch = ({ navigationItems }) => {
   const [searchQuery, setSearchQuery] = useState('');
@@ -660,10 +660,10 @@ const MobileNavigationWithSearch = ({ navigationItems }) => {
     </div>
   );
 };
-```
+{% endraw %}```
 
 ### Breadcrumb Navigation for Mobile
-```jsx
+```jsx{% raw %}
 // Mobile-friendly breadcrumb navigation
 const MobileBreadcrumbs = ({ path }) => {
   const [showFullBreadcrumb, setShowFullBreadcrumb] = useState(false);
@@ -702,7 +702,7 @@ const MobileBreadcrumbs = ({ path }) => {
     </nav>
   );
 };
-```
+{% endraw %}```
 
 ## Mobile-Specific Features
 

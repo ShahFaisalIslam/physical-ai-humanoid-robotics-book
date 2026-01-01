@@ -145,13 +145,15 @@ class VoiceCommandProcessor(Node):
         {json.dumps(self.robot_state, indent=2)}
         
         User command: "{command_text}"
-        
+
         Respond with a JSON object containing the action plan:
+        {% raw %}
         {{
           "action": "action_name",
           "parameters": {{"param1": "value1", "param2": "value2"}},
           "confidence": 0.0-1.0
         }}
+        {% endraw %}
         
         If the command is ambiguous, return empty parameters and low confidence.
         """

@@ -87,6 +87,7 @@ class SimpleLLMPlanner(Node):
         
         Respond with a JSON object containing a step-by-step plan. Each step should be a dictionary with an 'action' and 'parameters'.
         Format:
+        {% raw %}
         {{
           "plan": [
             {{"action": "move_forward", "parameters": {{"distance": 1.0}}}},
@@ -94,6 +95,7 @@ class SimpleLLMPlanner(Node):
             {{"action": "pick_up_object", "parameters": {{}}}}
           ]
         }}
+        {% endraw %}
         
         Be specific with parameters and ensure the plan is executable.
         """
@@ -370,6 +372,7 @@ class ContextAwareLLMPlanner(Node):
         
         Respond with a JSON object containing a step-by-step plan. Each step should be a dictionary with an 'action' and 'parameters'.
         Format:
+        {% raw %}
         {{
           "plan": [
             {{"action": "move_forward", "parameters": {{"distance": 1.0}}}},
@@ -377,6 +380,7 @@ class ContextAwareLLMPlanner(Node):
             {{"action": "pick_up_object", "parameters": {{}}}}
           ]
         }}
+        {% endraw %}
         
         Consider the conversation context and current sensor data when generating the plan.
         Be specific with parameters and ensure the plan is executable and safe.
@@ -638,6 +642,7 @@ class LocalLLMPlanner(Node):
         
         Respond with a JSON object containing a step-by-step plan. Each step should be a dictionary with an 'action' and 'parameters'.
         Format:
+        {% raw %}
         {{
           "plan": [
             {{"action": "move_forward", "parameters": {{"distance": 1.0}}}},
@@ -645,6 +650,7 @@ class LocalLLMPlanner(Node):
             {{"action": "pick_up_object", "parameters": {{}}}}
           ]
         }}
+        {% endraw %}
         
         Be specific with parameters and ensure the plan is executable.
         """

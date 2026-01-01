@@ -192,14 +192,16 @@ class CapstoneIntegratedSystem(Node):
         {json.dumps(self.detected_objects[:5], indent=2)}  # Limit to first 5 for brevity
         
         User command: "{command_text}"
-        
+
         Respond with a JSON object containing the action plan:
+        {% raw %}
         {{
           "action": "action_name",
           "parameters": {{"param1": "value1", "param2": "value2"}},
           "confidence": 0.0-1.0,
           "required_components": ["component1", "component2"]
         }}
+        {% endraw %}
         
         If the command is ambiguous or unsafe, return empty parameters and low confidence.
         """

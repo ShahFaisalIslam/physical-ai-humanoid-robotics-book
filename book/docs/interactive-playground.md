@@ -300,7 +300,7 @@ const NavigationSimulator = () => {
           width={500}
           height={400}
           onClick={handleCanvasClick}
-          style={{ border: '1px solid #ccc', background: '#f0f0f0' }}
+          style={% raw %}{{ border: '1px solid #ccc', background: '#f0f0f0' }}{% endraw %}
         />
       </div>
       
@@ -470,7 +470,7 @@ const PerceptionPlayground = () => {
           width={600}
           height={400}
           onClick={handleCanvasClick}
-          style={{ border: '1px solid #ccc', background: '#f0f0f0' }}
+          style={% raw %}{{ border: '1px solid #ccc', background: '#f0f0f0' }}{% endraw %}
         />
       </div>
       
@@ -482,15 +482,15 @@ const PerceptionPlayground = () => {
           <div className="object-grid">
             {detectedObjects.map(obj => (
               <div key={obj.id} className="object-card">
-                <div 
-                  className="object-preview" 
-                  style={{ 
+                <div
+                  className="object-preview"
+                  style={% raw %}{{
                     backgroundColor: obj.color,
                     width: '50px',
                     height: '50px',
                     display: 'inline-block',
                     marginRight: '10px'
-                  }}
+                  }}{% endraw %}
                 />
                 <div>
                   <strong>{obj.label}</strong><br/>
@@ -747,7 +747,7 @@ const ManipulationSimulator = () => {
           width={600}
           height={400}
           onClick={updateTarget}
-          style={{ border: '1px solid #ccc', background: '#f9f9f9' }}
+          style={% raw %}{{ border: '1px solid #ccc', background: '#f9f9f9' }}{% endraw %}
         />
         <p>Click on the canvas to set a new target position</p>
       </div>

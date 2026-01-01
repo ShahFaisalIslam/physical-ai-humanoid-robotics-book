@@ -115,6 +115,7 @@ class LLMBotPlanner(Node):
         
         Respond with a JSON object containing a step-by-step plan. Each step should be a dictionary with an 'action' and 'parameters'.
         Format:
+        {% raw %}
         {{
           "plan": [
             {{"action": "move_forward", "parameters": {{"distance": 1.0}}}},
@@ -122,6 +123,7 @@ class LLMBotPlanner(Node):
             {{"action": "pick_up_object", "parameters": {{}}}}
           ]
         }}
+        {% endraw %}
         
         Be specific with parameters and ensure the plan is executable.
         """
@@ -329,6 +331,7 @@ class LocalLLMPlanner(Node):
         
         Respond with a JSON object containing a step-by-step plan. Each step should be a dictionary with an 'action' and 'parameters'.
         Format:
+        {% raw %}
         {{
           "plan": [
             {{"action": "move_forward", "parameters": {{"distance": 1.0}}}},
@@ -336,6 +339,7 @@ class LocalLLMPlanner(Node):
             {{"action": "pick_up_object", "parameters": {{}}}}
           ]
         }}
+        {% endraw %}
         
         Be specific with parameters and ensure the plan is executable.
         """
